@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("FATEA.ProjetoPoster")]
+[assembly: AssemblyTitle("FATEA.ProjetoPoster.Domain")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("FATEA.ProjetoPoster")]
+[assembly: AssemblyProduct("FATEA.ProjetoPoster.Domain")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e10bc075-233e-48fb-a013-2a9172424450")]
+[assembly: Guid("4188042b-9ad6-41a1-b02a-4d9f19e32f7c")]
 
 // Version information for an assembly consists of the following four values:
 //
