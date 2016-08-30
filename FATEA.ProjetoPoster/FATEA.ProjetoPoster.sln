@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FATEA.ProjetoPoster", "FATEA.ProjetoPoster\FATEA.ProjetoPoster.csproj", "{E10BC075-233E-48FB-A013-2A9172424450}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FATEA.ProjetoPoster.Domain", "FATEA.ProjetoPoster\FATEA.ProjetoPoster.Domain.csproj", "{E10BC075-233E-48FB-A013-2A9172424450}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FATEA.ProjetoPoster.Web", "FATEA.ProjetoPoster.Web\FATEA.ProjetoPoster.Web.csproj", "{F5B90852-A4DD-450A-BBA5-0BC26F5B268E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FATEA.ProjetoPoster.DataAccess.Entity", "FATEA.ProjetoPoster.DataAccess.Entity\FATEA.ProjetoPoster.DataAccess.Entity.csproj", "{053D7792-5C7B-435B-AC06-C2930942ECCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FATEA.DataAccess.Entity.Common", "FATEA.DataAccess.Entity.Common\FATEA.DataAccess.Entity.Common.csproj", "{2156575F-07EC-4C0A-A36A-DB21EDE4ABDD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{F5B90852-A4DD-450A-BBA5-0BC26F5B268E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5B90852-A4DD-450A-BBA5-0BC26F5B268E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5B90852-A4DD-450A-BBA5-0BC26F5B268E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{053D7792-5C7B-435B-AC06-C2930942ECCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{053D7792-5C7B-435B-AC06-C2930942ECCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{053D7792-5C7B-435B-AC06-C2930942ECCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{053D7792-5C7B-435B-AC06-C2930942ECCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2156575F-07EC-4C0A-A36A-DB21EDE4ABDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2156575F-07EC-4C0A-A36A-DB21EDE4ABDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2156575F-07EC-4C0A-A36A-DB21EDE4ABDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2156575F-07EC-4C0A-A36A-DB21EDE4ABDD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
