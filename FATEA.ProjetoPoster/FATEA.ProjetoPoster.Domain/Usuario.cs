@@ -16,5 +16,7 @@ namespace FATEA.ProjetoPoster.Domain
         public string Senha { get; set; }
         public Enum Perfil { get; set; }
 
+        public void fazerLogin(){ }
+        public void alterarSenha() { }
     }
 }
