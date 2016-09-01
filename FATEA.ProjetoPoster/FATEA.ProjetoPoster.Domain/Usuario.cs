@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FATEA.ProjetoPoster.Domain
 {
-    class Usuario
+   public class Usuario
     {
         public int Id { get; set; }
         public string Nome { get; set; }
@@ -14,7 +14,7 @@ namespace FATEA.ProjetoPoster.Domain
         public string Cpf { get; set; }
         public string Login { get; set; }
         public string Senha { get; set; }
-        public PerfilEnum Perfil { get; set; }
+        public Enum Perfil { get; set; }
 
     }
 }
