@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace FATEA.ProjetoPoster.Domain
 {
-    class Aluno
+    public class Aluno : Usuario
     {
-
+        public void submeterPoster() { }
+        public void verNota() { }
     }
 }

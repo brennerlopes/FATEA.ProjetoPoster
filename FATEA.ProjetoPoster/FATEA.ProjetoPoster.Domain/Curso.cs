@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FATEA.ProjetoPoster.Domain
 {
-    class Curso
+   public class Curso
     {
         public int Id { get; set; }
         public string Nome { get; set; }
