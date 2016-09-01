@@ -10,6 +10,6 @@ namespace FATEA.ProjetoPoster.Domain
         public string Area { get; set; }
 
         public void visualizarPosteres() { }
-        public void atribuiNota() { }
+        public void atribuirNota() { }
     }
 }
