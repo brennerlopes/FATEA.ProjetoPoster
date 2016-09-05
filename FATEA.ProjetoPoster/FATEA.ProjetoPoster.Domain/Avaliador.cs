@@ -11,5 +11,6 @@ namespace FATEA.ProjetoPoster.Domain
 
         public void visualizarPosteres() { }
         public void atribuirNota() { }
+              
     }
 }
