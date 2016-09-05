@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FATEA.ProjetoPoster.Domain
 {
-   public class Avaliador{
+   public class Avaliador : Usuario{
         public string Area { get; set; }
 
         public void visualizarPosteres() { }
