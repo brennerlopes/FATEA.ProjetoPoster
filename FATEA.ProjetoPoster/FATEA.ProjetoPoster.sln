@@ -6,8 +6,15 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FATEA.ProjetoPoster.Web", "FATEA.ProjetoPoster.Web\FATEA.ProjetoPoster.Web.csproj", "{F5B90852-A4DD-450A-BBA5-0BC26F5B268E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FATEA.ProjetoPoster.DataAccess.Entity", "FATEA.ProjetoPoster.DataAccess.Entity\FATEA.ProjetoPoster.DataAccess.Entity.csproj", "{053D7792-5C7B-435B-AC06-C2930942ECCB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4188042B-9AD6-41A1-B02A-4D9F19E32F7C} = {4188042B-9AD6-41A1-B02A-4D9F19E32F7C}
+		{2156575F-07EC-4C0A-A36A-DB21EDE4ABDD} = {2156575F-07EC-4C0A-A36A-DB21EDE4ABDD}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FATEA.DataAccess.Entity.Common", "FATEA.DataAccess.Entity.Common\FATEA.DataAccess.Entity.Common.csproj", "{2156575F-07EC-4C0A-A36A-DB21EDE4ABDD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4188042B-9AD6-41A1-B02A-4D9F19E32F7C} = {4188042B-9AD6-41A1-B02A-4D9F19E32F7C}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FATEA.ProjetoPoster.Domain", "FATEA.ProjetoPoster.Domain\FATEA.ProjetoPoster.Domain.csproj", "{4188042B-9AD6-41A1-B02A-4D9F19E32F7C}"
 EndProject

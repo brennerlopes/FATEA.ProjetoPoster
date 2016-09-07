@@ -20,7 +20,7 @@ namespace FATEA.ProjetoPoster.DataAccess.Entity.Configurations
 
         public override void ConfigureForeignKeys()
         {
-            ;
+            
         }
 
         public override void ConfigureOthers()
