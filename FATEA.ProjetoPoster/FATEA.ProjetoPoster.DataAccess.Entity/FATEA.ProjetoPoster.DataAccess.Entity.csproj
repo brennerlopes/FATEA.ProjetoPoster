@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{053D7792-5C7B-435B-AC06-C2930942ECCB}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FATEA.ProjetoPoster.DataAccess.Entity</RootNamespace>
     <AssemblyName>FATEA.ProjetoPoster.DataAccess.Entity</AssemblyName>
@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -52,6 +55,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configurations\AvaliadorTypeConfiguration.cs" />
+    <Compile Include="Configurations\EventoTypeConfiguration.cs" />
+    <Compile Include="Context\ProjetoPosterDbContext.cs" />
+    <Compile Include="Migrations\201609082207559_EventoTableCreation.cs" />
+    <Compile Include="Migrations\201609082207559_EventoTableCreation.Designer.cs">
+      <DependentUpon>201609082207559_EventoTableCreation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -60,8 +70,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Context\" />
-    <Folder Include="Migrations\" />
+    <EmbeddedResource Include="Migrations\201609082207559_EventoTableCreation.resx">
+      <DependentUpon>201609082207559_EventoTableCreation.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FATEA.DataAccess.Entity.Common\FATEA.DataAccess.Entity.Common.csproj">
