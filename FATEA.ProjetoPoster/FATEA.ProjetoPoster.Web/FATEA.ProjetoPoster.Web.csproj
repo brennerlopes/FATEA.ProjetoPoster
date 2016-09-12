@@ -276,6 +276,18 @@
       <Project>{4188042b-9ad6-41a1-b02a-4d9f19e32f7c}</Project>
       <Name>FATEA.ProjetoPoster.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FATEA.ProjetoPoster.Repository.Common.Entity\FATEA.ProjetoPoster.Repository.Common.Entity.csproj">
+      <Project>{0867a72e-cc77-4408-a5e2-46d23168d000}</Project>
+      <Name>FATEA.ProjetoPoster.Repository.Common.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FATEA.ProjetoPoster.Repository.Common\FATEA.ProjetoPoster.Repository.Common.csproj">
+      <Project>{4f36659a-f970-486e-aa1b-3bb8d6def30b}</Project>
+      <Name>FATEA.ProjetoPoster.Repository.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FATEA.ProjetoPoster.Repository\FATEA.ProjetoPoster.Repository.csproj">
+      <Project>{501562f4-548c-4ae2-a1b0-a07bd9ee0893}</Project>
+      <Name>FATEA.ProjetoPoster.Repository</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

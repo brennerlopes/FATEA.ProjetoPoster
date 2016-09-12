@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using FATEA.ProjetoPoster.DataAccess.Entity.Context;
 using FATEA.ProjetoPoster.Domain;
+using FATEA.ProjetoPoster.Repository;
+using FATEA.ProjetoPoster.Repository.Common;
 using FATEA.ProjetoPoster.Web.ViewModels.Evento;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -12,16 +14,16 @@ namespace FATEA.ProjetoPoster.Web.Controllers
 {
     public class EventosController : Controller
     {
-        private ProjetoPosterDbContext db = new ProjetoPosterDbContext();
+        private ICrudRepositorio<Evento, long> _repositorio = new EventoRepository(new ProjetoPosterDbContext());
 
         // GET: Eventos
         public ActionResult Index()
         {
             List<EventoIndexViewModel> viewModels = new List<EventoIndexViewModel>();
-            List<Evento> eventos = db.Eventos.ToList();
+            List<Evento> eventos = _repositorio.Select();
             viewModels = Mapper.Map<List<Evento>, List<EventoIndexViewModel>>(eventos);
             return View(viewModels);
-                        
+
         }
 
         // GET: Eventos/Details/5
@@ -31,12 +33,11 @@ namespace FATEA.ProjetoPoster.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Evento evento = db.Eventos.Find(id);
+            Evento evento = _repositorio.ById(id.Value);
             if (evento == null)
             {
                 return HttpNotFound();
             }
-
             EventoIndexViewModel viewModel = Mapper.Map<Evento, EventoIndexViewModel>(evento);
             return View(viewModel);
         }
@@ -62,8 +63,7 @@ namespace FATEA.ProjetoPoster.Web.Controllers
                     return View(viewModel);
                 }
                 Evento evento = Mapper.Map<EventoEdicaoViewModel, Evento>(viewModel);
-                db.Eventos.Add(evento);
-                db.SaveChanges();
+                _repositorio.Insert(evento);
                 return RedirectToAction("Index");
             }
 
@@ -78,7 +78,7 @@ namespace FATEA.ProjetoPoster.Web.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            Evento evento = db.Eventos.Find(id);
+            Evento evento = _repositorio.ById(id.Value);
             if (evento == null)
             {
                 return HttpNotFound();
@@ -92,7 +92,7 @@ namespace FATEA.ProjetoPoster.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(EventoEdicaoViewModel viewModel )
+        public ActionResult Edit(EventoEdicaoViewModel viewModel)
         {
             if (viewModel.DataInicio > viewModel.DataFim)
             {
@@ -102,8 +102,7 @@ namespace FATEA.ProjetoPoster.Web.Controllers
             if (ModelState.IsValid)
             {
                 Evento evento = Mapper.Map<EventoEdicaoViewModel, Evento>(viewModel);
-                db.Entry(evento).State = EntityState.Modified;
-                db.SaveChanges();
+                _repositorio.Update(evento);
                 return RedirectToAction("Index");
             }
             return View(viewModel);
@@ -116,7 +115,7 @@ namespace FATEA.ProjetoPoster.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Evento evento = db.Eventos.Find(id);
+            Evento evento = _repositorio.ById(id.Value);
             if (evento == null)
             {
                 return HttpNotFound();
@@ -130,19 +129,9 @@ namespace FATEA.ProjetoPoster.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Evento evento = db.Eventos.Find(id);
-            db.Eventos.Remove(evento);
-            db.SaveChanges();
+            _repositorio.DeleteById(id);
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
     }
 }

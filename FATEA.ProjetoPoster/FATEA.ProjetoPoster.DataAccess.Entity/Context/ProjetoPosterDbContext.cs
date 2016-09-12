@@ -13,6 +13,12 @@ namespace FATEA.ProjetoPoster.DataAccess.Entity.Context
     {
         public DbSet<Evento> Eventos { get; set; }
 
+        public ProjetoPosterDbContext()
+        {
+            Configuration.LazyLoadingEnabled = false;
+            Configuration.ProxyCreationEnabled = false;
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new EventoTypeConfiguration());
