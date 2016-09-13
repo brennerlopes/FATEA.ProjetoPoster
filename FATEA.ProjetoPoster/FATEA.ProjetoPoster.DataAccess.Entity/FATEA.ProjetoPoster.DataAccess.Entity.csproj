@@ -55,7 +55,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configurations\AvaliadorTypeConfiguration.cs" />
-<<<<<<< 24bb1d822c35ed3771e133d020d7feb28d45a631
     <Compile Include="Configurations\EventoTypeConfiguration.cs" />
     <Compile Include="Context\ProjetoPosterDbContext.cs" />
     <Compile Include="Migrations\201609082207559_EventoTableCreation.cs" />
@@ -63,9 +62,7 @@
       <DependentUpon>201609082207559_EventoTableCreation.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-=======
     <Compile Include="Configurations\CursoTypeConfiguration.cs" />
->>>>>>> Inserção das classes CursoTypeConfiguration e modificação no DataAccess.Entity
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
