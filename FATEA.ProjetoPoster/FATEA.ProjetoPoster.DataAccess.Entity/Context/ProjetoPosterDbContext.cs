@@ -12,6 +12,7 @@ namespace FATEA.ProjetoPoster.DataAccess.Entity.Context
     public class ProjetoPosterDbContext : DbContext
     {
         public DbSet<Evento> Eventos { get; set; }
+        public DbSet<Curso> Cursos { get; set; }
 
         public ProjetoPosterDbContext()
         {
@@ -22,6 +23,8 @@ namespace FATEA.ProjetoPoster.DataAccess.Entity.Context
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new EventoTypeConfiguration());
+
+            modelBuilder.Configurations.Add(new CursoTypeConfiguration());
         }
     }
 }

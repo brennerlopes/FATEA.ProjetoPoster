@@ -1,4 +1,5 @@
-﻿using FATEA.ProjetoPoster.Domain;
+﻿using FATEA.ProjetoPoster.DataAccess.Entity.Context;
+using FATEA.ProjetoPoster.Domain;
 using FATEA.ProjetoPoster.Repository.Common.Entity;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace FATEA.ProjetoPoster.Repository
 {
     public class CursoRepository : EntityCrudRepository<Curso, long>
     {
-        public EventoRepository(ProjetoPosterDbContext contexto)
+        public CursoRepository(ProjetoPosterDbContext contexto)
             : base(contexto)
         {
 

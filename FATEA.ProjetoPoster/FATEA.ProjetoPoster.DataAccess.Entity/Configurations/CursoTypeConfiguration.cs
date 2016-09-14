@@ -1,15 +1,15 @@
 ﻿using FATEA.DataAccess.Entity.Common;
 using FATEA.ProjetoPoster.Domain;
+using System.ComponentModel.DataAnnotations.Schema;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace FATEA.ProjetoPoster.DataAccess.Entity.Configurations
 {
-    class CursoTypeConfiguration : FATEATypeConfiguration<Curso>
+    public class CursoTypeConfiguration : FATEATypeConfiguration<Curso>
 
     {
         public override void ConfigureFields()
@@ -26,7 +26,7 @@ namespace FATEA.ProjetoPoster.DataAccess.Entity.Configurations
 
             Property(c => c.Area)
                 .HasColumnName("CUR_AREA")
-                .HasMaxLength(50)
+                .HasMaxLength(100)
                 .IsRequired();              
         }
 
