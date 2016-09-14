@@ -49,6 +49,7 @@
     <Compile Include="Avaliador.cs" />
     <Compile Include="Curso.cs" />
     <Compile Include="Evento.cs" />
+    <Compile Include="Instituicao.cs" />
     <Compile Include="Poster.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

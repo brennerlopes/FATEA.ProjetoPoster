@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="Configurations\AvaliadorTypeConfiguration.cs" />
     <Compile Include="Configurations\EventoTypeConfiguration.cs" />
+    <Compile Include="Configurations\InstituicaoTypeConfiguration.cs" />
     <Compile Include="Context\ProjetoPosterDbContext.cs" />
     <Compile Include="Migrations\201609082207559_EventoTableCreation.cs" />
     <Compile Include="Migrations\201609082207559_EventoTableCreation.Designer.cs">
@@ -71,7 +72,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
