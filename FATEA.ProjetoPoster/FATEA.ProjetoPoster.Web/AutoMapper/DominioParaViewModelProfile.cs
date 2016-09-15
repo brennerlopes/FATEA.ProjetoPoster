@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using FATEA.ProjetoPoster.Domain;
 using FATEA.ProjetoPoster.Web.ViewModels.Evento;
+using FATEA.ProjetoPoster.Web.ViewModels.Poster;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,11 @@ namespace FATEA.ProjetoPoster.Web.AutoMapper
     {
         protected override void Configure()
         {
-            
             Mapper.CreateMap<Evento, EventoIndexViewModel>();
             Mapper.CreateMap<Evento, EventoEdicaoViewModel>();
+            Mapper.CreateMap<Poster, PosterIndexViewModel>();
+            Mapper.CreateMap<Poster, PosterEdicaoViewModel>();
+
         }
     }
 }

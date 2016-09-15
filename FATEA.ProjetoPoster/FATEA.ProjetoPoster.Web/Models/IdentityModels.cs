@@ -29,5 +29,7 @@ namespace FATEA.ProjetoPoster.Web.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<FATEA.ProjetoPoster.Domain.Poster> Posters { get; set; }
     }
 }

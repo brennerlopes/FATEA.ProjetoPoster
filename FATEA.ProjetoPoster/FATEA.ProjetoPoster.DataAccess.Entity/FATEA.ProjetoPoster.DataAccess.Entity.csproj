@@ -55,11 +55,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configurations\EventoTypeConfiguration.cs" />
+
     <Compile Include="Configurations\InstituicaoTypeConfiguration.cs" />
+
+    <Compile Include="Configurations\PosterTypeConfiguration.cs" />
+
     <Compile Include="Context\ProjetoPosterDbContext.cs" />
-    <Compile Include="Migrations\201609082207559_EventoTableCreation.cs" />
-    <Compile Include="Migrations\201609082207559_EventoTableCreation.Designer.cs">
-      <DependentUpon>201609082207559_EventoTableCreation.cs</DependentUpon>
+    <Compile Include="Migrations\201609140810554_CriarPoster.cs" />
+    <Compile Include="Migrations\201609140810554_CriarPoster.Designer.cs">
+      <DependentUpon>201609140810554_CriarPoster.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201609140107003_CursoTableCreation.cs" />
     <Compile Include="Migrations\201609140107003_CursoTableCreation.Designer.cs">
@@ -76,14 +80,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201609082207559_EventoTableCreation.resx">
-      <DependentUpon>201609082207559_EventoTableCreation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609140107003_CursoTableCreation.resx">
-      <DependentUpon>201609140107003_CursoTableCreation.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
+
     <ProjectReference Include="..\FATEA.DataAccess.Entity.Common\FATEA.DataAccess.Entity.Common.csproj">
       <Project>{2156575F-07EC-4C0A-A36A-DB21EDE4ABDD}</Project>
       <Name>FATEA.DataAccess.Entity.Common</Name>
@@ -92,6 +89,11 @@
       <Project>{4188042B-9AD6-41A1-B02A-4D9F19E32F7C}</Project>
       <Name>FATEA.ProjetoPoster.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201609140810554_CriarPoster.resx">
+      <DependentUpon>201609140810554_CriarPoster.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

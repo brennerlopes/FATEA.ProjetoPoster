@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace FATEA.ProjetoPoster.Repository
 {
-    public class CursoRepository : EntityCrudRepository<Curso, long>
+    public class PosterRepository : EntityCrudRepository<Poster, int>
     {
-        public CursoRepository(ProjetoPosterDbContext contexto)
+        public PosterRepository(ProjetoPosterDbContext contexto)
             : base(contexto)
         {
         }

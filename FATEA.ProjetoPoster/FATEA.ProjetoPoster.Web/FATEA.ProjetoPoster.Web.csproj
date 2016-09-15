@@ -179,6 +179,7 @@
     <Compile Include="Controllers\EventosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PostersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -191,6 +192,8 @@
     <Compile Include="ViewModels\Curso\CursoIndexViewModel.cs" />
     <Compile Include="ViewModels\Evento\EventoEdicaoViewModel.cs" />
     <Compile Include="ViewModels\Evento\EventoIndexViewModel.cs" />
+    <Compile Include="ViewModels\Poster\PosterEdicaoViewModel.cs" />
+    <Compile Include="ViewModels\Poster\PosterIndexViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -254,6 +257,11 @@
     <Content Include="Views\Eventos\Details.cshtml" />
     <Content Include="Views\Eventos\Edit.cshtml" />
     <Content Include="Views\Eventos\Index.cshtml" />
+    <Content Include="Views\Posters\Create.cshtml" />
+    <Content Include="Views\Posters\Delete.cshtml" />
+    <Content Include="Views\Posters\Details.cshtml" />
+    <Content Include="Views\Posters\Edit.cshtml" />
+    <Content Include="Views\Posters\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

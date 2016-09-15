@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="CursoRepository.cs" />
     <Compile Include="EventoRepository.cs" />
+    <Compile Include="PosterRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

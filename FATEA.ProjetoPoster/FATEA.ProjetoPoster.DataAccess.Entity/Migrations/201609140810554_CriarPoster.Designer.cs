@@ -5,22 +5,22 @@ namespace FATEA.ProjetoPoster.DataAccess.Entity.Migrations
     using System.Data.Entity.Migrations;
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
-    
+
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class EventoTableCreation : IMigrationMetadata
+    public sealed partial class CriarPoster : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(EventoTableCreation));
-        
+        private readonly ResourceManager Resources = new ResourceManager(typeof(CriarPoster));
+
         string IMigrationMetadata.Id
         {
-            get { return "201609082207559_EventoTableCreation"; }
+            get { return "201609140810554_CriarPoster"; }
         }
-        
+
         string IMigrationMetadata.Source
         {
             get { return null; }
         }
-        
+
         string IMigrationMetadata.Target
         {
             get { return Resources.GetString("Target"); }
