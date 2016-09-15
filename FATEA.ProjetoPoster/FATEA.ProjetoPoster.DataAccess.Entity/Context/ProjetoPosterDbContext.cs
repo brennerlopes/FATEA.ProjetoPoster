@@ -14,9 +14,6 @@ namespace FATEA.ProjetoPoster.DataAccess.Entity.Context
         public DbSet<Evento> Eventos { get; set; }
         public DbSet<Curso> Cursos { get; set; }
         public DbSet<Instituicao> Instituicaos { get; set; }
-
-
-
         public DbSet<Poster> Posters { get; set; }
         public DbSet<Avaliador> Avaliadores { get; set; }
 

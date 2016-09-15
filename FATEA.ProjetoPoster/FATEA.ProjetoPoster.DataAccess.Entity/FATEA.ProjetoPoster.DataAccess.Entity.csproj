@@ -55,19 +55,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configurations\EventoTypeConfiguration.cs" />
-
     <Compile Include="Configurations\InstituicaoTypeConfiguration.cs" />
-
     <Compile Include="Configurations\PosterTypeConfiguration.cs" />
-
     <Compile Include="Context\ProjetoPosterDbContext.cs" />
-    <Compile Include="Migrations\201609140810554_CriarPoster.cs" />
-    <Compile Include="Migrations\201609140810554_CriarPoster.Designer.cs">
-      <DependentUpon>201609140810554_CriarPoster.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609140107003_CursoTableCreation.cs" />
-    <Compile Include="Migrations\201609140107003_CursoTableCreation.Designer.cs">
-      <DependentUpon>201609140107003_CursoTableCreation.cs</DependentUpon>
+    <Compile Include="Migrations\201609150804543_AddDB.cs" />
+    <Compile Include="Migrations\201609150804543_AddDB.Designer.cs">
+      <DependentUpon>201609150804543_AddDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Configurations\CursoTypeConfiguration.cs" />
@@ -80,7 +73,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-
     <ProjectReference Include="..\FATEA.DataAccess.Entity.Common\FATEA.DataAccess.Entity.Common.csproj">
       <Project>{2156575F-07EC-4C0A-A36A-DB21EDE4ABDD}</Project>
       <Name>FATEA.DataAccess.Entity.Common</Name>
@@ -91,8 +83,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201609140810554_CriarPoster.resx">
-      <DependentUpon>201609140810554_CriarPoster.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201609150804543_AddDB.resx">
+      <DependentUpon>201609150804543_AddDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

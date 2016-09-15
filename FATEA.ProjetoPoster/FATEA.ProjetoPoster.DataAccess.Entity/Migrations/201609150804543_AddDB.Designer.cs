@@ -7,13 +7,13 @@ namespace FATEA.ProjetoPoster.DataAccess.Entity.Migrations
     using System.Resources;
 
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class CriarPoster : IMigrationMetadata
+    public sealed partial class AddDB : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CriarPoster));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddDB));
 
         string IMigrationMetadata.Id
         {
-            get { return "201609140810554_CriarPoster"; }
+            get { return "201609150804543_AddDB"; }
         }
 
         string IMigrationMetadata.Source

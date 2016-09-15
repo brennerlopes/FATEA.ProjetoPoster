@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace FATEA.ProjetoPoster.DataAccess.Entity.Configurations
 {
-    class InstituicaoTypeConfiguration : FATEATypeConfiguration<Instituicao>
+   public class InstituicaoTypeConfiguration : FATEATypeConfiguration<Instituicao>
     {
         public override void ConfigureFields()
         {

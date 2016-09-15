@@ -7,7 +7,7 @@ using System.Web;
 
 namespace FATEA.ProjetoPoster.Web.ViewModels.Poster
 {
-    public class PosterEdicaoViewModel
+    public abstract class PosterEdicaoViewModel
     {
         [Required(ErrorMessage = "O ID do Poster é obrigatório")]
         public int Id { get; set; }
@@ -25,7 +25,7 @@ namespace FATEA.ProjetoPoster.Web.ViewModels.Poster
         [DisplayName("Palavra Chave")]
         [Required(ErrorMessage = "Por favor, insira as Palavras chave.")]
         [MaxLength(150, ErrorMessage = "A palavra chave deve ter no máximo 150 caracteres.")]
-        public string PalavrChave { get; set; }
+        public string PalavraChave { get; set; }
 
         [DisplayName("Resumo")]
         [Required(ErrorMessage = "Por favor, descreva um resumo do poster.")]
@@ -47,6 +47,12 @@ namespace FATEA.ProjetoPoster.Web.ViewModels.Poster
         [DisplayName("Arquivo")]
         [Required(ErrorMessage = "Insira um arquivo.")]
         public string NomeArquivo { get; set; }
+
+
+        [DisplayName("Area")]
+        [Required(ErrorMessage = "Por favor, insira a Area")]
+        [MaxLength(100, ErrorMessage = "O Título deve ter no máximo 100 caracteres.")]
+        public string Area { get; set; }
 
     }
 }

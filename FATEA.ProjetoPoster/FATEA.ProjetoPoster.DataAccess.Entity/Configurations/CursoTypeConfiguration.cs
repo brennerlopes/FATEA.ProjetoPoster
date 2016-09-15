@@ -1,4 +1,5 @@
-﻿using FATEA.DataAccess.Entity.Common;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using FATEA.DataAccess.Entity.Common;
 using FATEA.ProjetoPoster.Domain;
 using System.ComponentModel.DataAnnotations.Schema;
 using System;
@@ -10,8 +11,13 @@ using System.Threading.Tasks;
 namespace FATEA.ProjetoPoster.DataAccess.Entity.Configurations
 {
     public class CursoTypeConfiguration : FATEATypeConfiguration<Curso>
-
     {
+
+        public override void ConfigureTableName()
+        {
+            ToTable("AVA_AVALIADOR");
+        }
+		
         public override void ConfigureFields()
         {
             Property(c => c.Id)

@@ -120,8 +120,8 @@ namespace FATEA.ProjetoPoster.Web.Controllers
             {
                 return HttpNotFound();
             }
-            EventoEdicaoViewModel viewModel = Mapper.Map<Evento, EventoEdicaoViewModel>(evento);
-            return View(viewModel);
+            //EventoEdicaoViewModel viewModel = Mapper.Map<Evento, EventoEdicaoViewModel>(evento);
+            return View(evento);
         }
 
         // POST: Eventos/Delete/5

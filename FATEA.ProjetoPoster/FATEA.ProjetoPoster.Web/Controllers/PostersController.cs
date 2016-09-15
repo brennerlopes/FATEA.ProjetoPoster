@@ -111,15 +111,15 @@ namespace FATEA.ProjetoPoster.Web.Controllers
             {
                 return HttpNotFound();
             }
-            PosterEdicaoViewModel viewModel = Mapper.Map<Poster, PosterEdicaoViewModel>(poster);
-            return View(viewModel);
+           // PosterEdicaoViewModel viewModel = Mapper.Map<Poster, PosterEdicaoViewModel>(poster);
+            return View(poster);
         }
         // POST: Posters/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            _repositorio.DeleteById(id);
+           Poster posters = _repositorio.ById(id);
             return RedirectToAction("Index");
         }
     }
