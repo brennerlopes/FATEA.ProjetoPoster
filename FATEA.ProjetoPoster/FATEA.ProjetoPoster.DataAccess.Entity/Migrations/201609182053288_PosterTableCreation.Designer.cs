@@ -5,22 +5,22 @@ namespace FATEA.ProjetoPoster.DataAccess.Entity.Migrations
     using System.Data.Entity.Migrations;
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
-
+    
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddDB : IMigrationMetadata
+    public sealed partial class PosterTableCreation : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddDB));
-
+        private readonly ResourceManager Resources = new ResourceManager(typeof(PosterTableCreation));
+        
         string IMigrationMetadata.Id
         {
-            get { return "201609150804543_AddDB"; }
+            get { return "201609182053288_PosterTableCreation"; }
         }
-
+        
         string IMigrationMetadata.Source
         {
             get { return null; }
         }
-
+        
         string IMigrationMetadata.Target
         {
             get { return Resources.GetString("Target"); }

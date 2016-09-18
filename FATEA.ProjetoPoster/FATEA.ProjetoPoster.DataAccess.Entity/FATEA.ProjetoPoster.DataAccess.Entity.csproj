@@ -66,9 +66,9 @@
     <Compile Include="Migrations\201609140107003_CursoTableCreation.Designer.cs">
       <DependentUpon>201609140107003_CursoTableCreation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201609150804543_AddDB.cs" />
-    <Compile Include="Migrations\201609150804543_AddDB.Designer.cs">
-      <DependentUpon>201609150804543_AddDB.cs</DependentUpon>
+    <Compile Include="Migrations\201609182053288_PosterTableCreation.cs" />
+    <Compile Include="Migrations\201609182053288_PosterTableCreation.Designer.cs">
+      <DependentUpon>201609182053288_PosterTableCreation.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Configurations\CursoTypeConfiguration.cs" />
@@ -97,8 +97,8 @@
     <EmbeddedResource Include="Migrations\201609140107003_CursoTableCreation.resx">
       <DependentUpon>201609140107003_CursoTableCreation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609150804543_AddDB.resx">
-      <DependentUpon>201609150804543_AddDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201609182053288_PosterTableCreation.resx">
+      <DependentUpon>201609182053288_PosterTableCreation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

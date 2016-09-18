@@ -15,7 +15,6 @@ namespace FATEA.ProjetoPoster.DataAccess.Entity.Context
         public DbSet<Curso> Cursos { get; set; }
         public DbSet<Instituicao> Instituicaos { get; set; }
         public DbSet<Poster> Posters { get; set; }
-        public DbSet<Avaliador> Avaliadores { get; set; }
 
         public ProjetoPosterDbContext()
         {
@@ -25,12 +24,9 @@ namespace FATEA.ProjetoPoster.DataAccess.Entity.Context
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Configurations.Add(new AvaliadorTypeConfiguration());
             modelBuilder.Configurations.Add(new PosterTypeConfiguration());
             modelBuilder.Configurations.Add(new CursoTypeConfiguration());
             modelBuilder.Configurations.Add(new EventoTypeConfiguration());
-
-
         }
     }
 }

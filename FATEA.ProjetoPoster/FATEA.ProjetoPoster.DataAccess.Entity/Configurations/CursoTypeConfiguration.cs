@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using FATEA.DataAccess.Entity.Common;
 using FATEA.ProjetoPoster.Domain;
-using System.ComponentModel.DataAnnotations.Schema;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +14,9 @@ namespace FATEA.ProjetoPoster.DataAccess.Entity.Configurations
 
         public override void ConfigureTableName()
         {
-            ToTable("AVA_AVALIADOR");
+            ToTable("CUR_CURSOS");
         }
-		
+
         public override void ConfigureFields()
         {
             Property(c => c.Id)
@@ -33,7 +32,7 @@ namespace FATEA.ProjetoPoster.DataAccess.Entity.Configurations
             Property(c => c.Area)
                 .HasColumnName("CUR_AREA")
                 .HasMaxLength(100)
-                .IsRequired();              
+                .IsRequired();
         }
 
         public override void ConfigureForeignKeys()
@@ -49,11 +48,6 @@ namespace FATEA.ProjetoPoster.DataAccess.Entity.Configurations
         public override void ConfigurePrimaryKeys()
         {
             HasKey(pk => pk.Id);
-        }
-
-        public override void ConfigureTableName()
-        {
-            ToTable("CUR_CURSOS");
         }
     }
 }
