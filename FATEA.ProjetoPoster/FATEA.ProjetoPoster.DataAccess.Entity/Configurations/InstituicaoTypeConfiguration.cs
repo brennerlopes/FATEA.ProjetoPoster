@@ -18,7 +18,7 @@ namespace FATEA.ProjetoPoster.DataAccess.Entity.Configurations
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
                 .IsRequired();
 
-            Property(i => i.Nome)
+            Property(i => i.Name)
                 .HasColumnName("INS_NOME")
                 .HasMaxLength(100)
                 .IsRequired();
@@ -26,7 +26,7 @@ namespace FATEA.ProjetoPoster.DataAccess.Entity.Configurations
             Property(i => i.Cidade)
                 .HasColumnName("INS_CIDADE")
                 .HasMaxLength(50)
-                .IsRequired()
+                .IsRequired();
         }
 
         public override void ConfigureForeignKeys()
@@ -46,7 +46,7 @@ namespace FATEA.ProjetoPoster.DataAccess.Entity.Configurations
 
         public override void ConfigureTableName()
         {
-            ToTable(INS_INSTITUICAO);
+            ToTable("INS_INSTITUICAO");
         }
     }
 }
