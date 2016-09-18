@@ -25,6 +25,10 @@ namespace FATEA.ProjetoPoster.DataAccess.Entity.Context
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new PosterTypeConfiguration());
+<<<<<<< 2d0d057db647883c354e535e7c803699edab2855
+=======
+            modelBuilder.Configurations.Add(new EventoTypeConfiguration());
+>>>>>>> Preparacao para rebase com o desenv com as correcoes do repositorio
             modelBuilder.Configurations.Add(new CursoTypeConfiguration());
             modelBuilder.Configurations.Add(new EventoTypeConfiguration());
         }
