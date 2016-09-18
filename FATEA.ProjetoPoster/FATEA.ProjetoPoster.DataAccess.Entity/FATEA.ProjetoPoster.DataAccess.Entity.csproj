@@ -54,7 +54,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configurations\AvaliadorTypeConfiguration.cs" />
     <Compile Include="Configurations\EventoTypeConfiguration.cs" />
     <Compile Include="Configurations\InstituicaoTypeConfiguration.cs" />
     <Compile Include="Context\ProjetoPosterDbContext.cs" />
@@ -68,7 +67,6 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Configurations\CursoTypeConfiguration.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
