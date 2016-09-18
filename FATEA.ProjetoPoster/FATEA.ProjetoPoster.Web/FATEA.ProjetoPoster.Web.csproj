@@ -175,6 +175,7 @@
     <Compile Include="AutoMapper\DominioParaViewModelProfile.cs" />
     <Compile Include="AutoMapper\ViewModelParaDominioProfile.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CursosController.cs" />
     <Compile Include="Controllers\EventosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -186,6 +187,8 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\Curso\CursoEdicaoViewModel.cs" />
+    <Compile Include="ViewModels\Curso\CursoIndexViewModel.cs" />
     <Compile Include="ViewModels\Evento\EventoEdicaoViewModel.cs" />
     <Compile Include="ViewModels\Evento\EventoIndexViewModel.cs" />
   </ItemGroup>
@@ -254,6 +257,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Cursos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
