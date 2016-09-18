@@ -59,7 +59,13 @@
     <Compile Include="Configurations\PosterTypeConfiguration.cs" />
     <Compile Include="Context\ProjetoPosterDbContext.cs" />
     <Compile Include="Migrations\201609082207559_EventoTableCreation.cs" />
+    <Compile Include="Migrations\201609082207559_EventoTableCreation.Designer.cs">
+      <DependentUpon>201609082207559_EventoTableCreation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201609140107003_CursoTableCreation.cs" />
+    <Compile Include="Migrations\201609140107003_CursoTableCreation.Designer.cs">
+      <DependentUpon>201609140107003_CursoTableCreation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201609150804543_AddDB.cs" />
     <Compile Include="Migrations\201609150804543_AddDB.Designer.cs">
       <DependentUpon>201609150804543_AddDB.cs</DependentUpon>
@@ -85,6 +91,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201609082207559_EventoTableCreation.resx">
+      <DependentUpon>201609082207559_EventoTableCreation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609140107003_CursoTableCreation.resx">
+      <DependentUpon>201609140107003_CursoTableCreation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609150804543_AddDB.resx">
       <DependentUpon>201609150804543_AddDB.cs</DependentUpon>
     </EmbeddedResource>
