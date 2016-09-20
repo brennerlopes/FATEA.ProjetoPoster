@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using FATEA.ProjetoPoster.Domain;
+using FATEA.ProjetoPoster.Web.ViewModels.Curso;
 using FATEA.ProjetoPoster.Web.ViewModels.Evento;
 using FATEA.ProjetoPoster.Web.ViewModels.Poster;
 using System;
@@ -13,6 +14,8 @@ namespace FATEA.ProjetoPoster.Web.AutoMapper
     {
         protected override void Configure()
         {
+            Mapper.CreateMap<Curso, CursoIndexViewModel>();
+            Mapper.CreateMap<Curso, CursoEdicaoViewModel>();
             Mapper.CreateMap<Evento, EventoIndexViewModel>();
             Mapper.CreateMap<Evento, EventoEdicaoViewModel>();
             Mapper.CreateMap<Poster, PosterIndexViewModel>();

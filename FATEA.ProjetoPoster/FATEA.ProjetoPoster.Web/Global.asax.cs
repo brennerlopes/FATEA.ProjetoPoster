@@ -20,6 +20,8 @@ namespace FATEA.ProjetoPoster.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AutoMapperConfig.Configure();
+            App_Start.AutoMapperConfig.Configure();
+       
         }
     }
 }

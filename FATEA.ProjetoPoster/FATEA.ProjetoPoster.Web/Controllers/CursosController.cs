@@ -8,6 +8,11 @@ using System.Web;
 using System.Web.Mvc;
 using FATEA.ProjetoPoster.DataAccess.Entity.Context;
 using FATEA.ProjetoPoster.Domain;
+using FATEA.ProjetoPoster.Web.ViewModels.Evento;
+using FATEA.ProjetoPoster.Repository.Common;
+using FATEA.ProjetoPoster.Repository;
+using FATEA.ProjetoPoster.Web.ViewModels.Curso;
+using AutoMapper;
 
 namespace FATEA.ProjetoPoster.Web.Controllers
 {
@@ -15,10 +20,16 @@ namespace FATEA.ProjetoPoster.Web.Controllers
     {
         private ProjetoPosterDbContext db = new ProjetoPosterDbContext();
 
+        private ICrudRepositorio<Curso, long> _repositorio = new CursoRepository(new ProjetoPosterDbContext());
         // GET: Cursos
         public ActionResult Index()
         {
-            return View(db.Cursos.ToList());
+           
+
+            List<CursoIndexViewModel> viewModels = new List<CursoIndexViewModel>();
+            List<Curso> cursos = _repositorio.Select();
+            viewModels = Mapper.Map<List<Curso>, List<CursoIndexViewModel>>(cursos);
+            return View(viewModels);
         }
 
         // GET: Cursos/Details/5
@@ -28,12 +39,14 @@ namespace FATEA.ProjetoPoster.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Curso curso = db.Cursos.Find(id);
+            Curso curso = _repositorio.ById(id.Value);
             if (curso == null)
             {
                 return HttpNotFound();
             }
-            return View(curso);
+
+            CursoIndexViewModel viewModel = Mapper.Map<Curso, CursoIndexViewModel>(curso);
+            return View(viewModel);
         }
 
         // GET: Cursos/Create
@@ -47,16 +60,16 @@ namespace FATEA.ProjetoPoster.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nome,Area")] Curso curso)
+        public ActionResult Create(CursoEdicaoViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
-                db.Cursos.Add(curso);
-                db.SaveChanges();
+                Curso curso = Mapper.Map<CursoEdicaoViewModel, Curso>(viewModel);
+                _repositorio.Insert(curso);
                 return RedirectToAction("Index");
             }
 
-            return View(curso);
+            return View(viewModel);
         }
 
         // GET: Cursos/Edit/5
@@ -66,12 +79,13 @@ namespace FATEA.ProjetoPoster.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Curso curso = db.Cursos.Find(id);
+            Curso curso = _repositorio.ById(id.Value);
             if (curso == null)
             {
                 return HttpNotFound();
             }
-            return View(curso);
+            CursoEdicaoViewModel viewModel = Mapper.Map<Curso, CursoEdicaoViewModel>(curso);
+            return View(viewModel);
         }
 
         // POST: Cursos/Edit/5
@@ -79,15 +93,15 @@ namespace FATEA.ProjetoPoster.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nome,Area")] Curso curso)
+        public ActionResult Edit(CursoEdicaoViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(curso).State = EntityState.Modified;
-                db.SaveChanges();
+                Curso curso = Mapper.Map<CursoEdicaoViewModel, Curso>(viewModel);
+                _repositorio.Update(curso);
                 return RedirectToAction("Index");
             }
-            return View(curso);
+            return View(viewModel);
         }
 
         // GET: Cursos/Delete/5
@@ -97,7 +111,7 @@ namespace FATEA.ProjetoPoster.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Curso curso = db.Cursos.Find(id);
+            Curso curso = _repositorio.ById(id.Value);
             if (curso == null)
             {
                 return HttpNotFound();
@@ -110,19 +124,10 @@ namespace FATEA.ProjetoPoster.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Curso curso = db.Cursos.Find(id);
-            db.Cursos.Remove(curso);
-            db.SaveChanges();
+            _repositorio.DeleteById(id);
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        
     }
 }
