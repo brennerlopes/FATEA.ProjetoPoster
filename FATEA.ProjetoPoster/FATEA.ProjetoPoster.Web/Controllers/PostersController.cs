@@ -13,6 +13,7 @@ using FATEA.ProjetoPoster.Repository;
 using FATEA.ProjetoPoster.DataAccess.Entity.Context;
 using FATEA.ProjetoPoster.Web.ViewModels.Poster;
 using AutoMapper;
+using System.IO;
 
 namespace FATEA.ProjetoPoster.Web.Controllers
 {
@@ -43,13 +44,14 @@ namespace FATEA.ProjetoPoster.Web.Controllers
             {
                 return HttpNotFound();
             }
-            PosterIndexViewModel viewModel = Mapper.Map<Poster, PosterIndexViewModel>(poster);
+            PosterEdicaoViewModel viewModel = Mapper.Map<Poster, PosterEdicaoViewModel>(poster);
             return View(viewModel);
         }
 
         // GET: Posters/Create
         public ActionResult Create()
         {
+
             return View();
         }
 
@@ -59,9 +61,10 @@ namespace FATEA.ProjetoPoster.Web.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(PosterEdicaoViewModel viewModel)
-        {
+        {          
             if (ModelState.IsValid)
             {
+                //viewModel.NomeArquivo = "testando_";
                 Poster poster = Mapper.Map<PosterEdicaoViewModel, Poster>(viewModel);
                 _repositorio.Insert(poster);
                 return RedirectToAction("Index");
@@ -111,15 +114,15 @@ namespace FATEA.ProjetoPoster.Web.Controllers
             {
                 return HttpNotFound();
             }
-           // PosterEdicaoViewModel viewModel = Mapper.Map<Poster, PosterEdicaoViewModel>(poster);
-            return View(poster);
+            PosterEdicaoViewModel viewModel = Mapper.Map<Poster, PosterEdicaoViewModel>(poster);
+            return View(viewModel);
         }
         // POST: Posters/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-           Poster posters = _repositorio.ById(id);
+            _repositorio.DeleteById(id);
             return RedirectToAction("Index");
         }
     }

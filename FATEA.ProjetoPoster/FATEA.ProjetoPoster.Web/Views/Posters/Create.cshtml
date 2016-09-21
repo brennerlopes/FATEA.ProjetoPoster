@@ -4,7 +4,7 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Enviar Poster</h2>
 
 
 @using (Html.BeginForm())
@@ -38,15 +38,6 @@
                 @Html.ValidationMessageFor(model => model.PalavraChave, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Resumo, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Resumo, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Resumo, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.Modalidade, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -67,36 +58,48 @@
             @Html.LabelFor(model => model.Nota, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Nota, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Nota, "", new { @class = "text-danger" })
+                
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Avaliador, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.AvaliadoPor, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Avaliador, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Avaliador, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.AvaliadoPor, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.AvaliadoPor, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
+            @Html.LabelFor(model => model.Resumo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Resumo, new { cols = 40, @rows = 5, @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Resumo, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label  class="control-label col-md-2" for="file">Artigo:</label>
+            <div class="col-md-10">               
+                <input type="file" accept="application/pdf" name="Artigo" id="_artigo" />              
+                </div>
+            </div>
+        <div class="form-group">        
             @Html.LabelFor(model => model.NomeArquivo, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.NomeArquivo, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.NomeArquivo, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Enviar" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Voltar", "Index")
 </div>
 
 @section Scripts {
