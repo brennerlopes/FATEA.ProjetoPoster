@@ -270,11 +270,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-<<<<<<< HEAD
-=======
+
     <Folder Include="Upload\" />
+	
     <Folder Include="Views\Cursos\" />
->>>>>>> a741318... parte da parte poster
+
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
