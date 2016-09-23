@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FATEA.ProjetoPoster.Domain
 {
-   public class Poster
+    public class Poster
     {
         public int Id { get; set; }
         public string Titulo { get; set; }
@@ -18,6 +18,6 @@ namespace FATEA.ProjetoPoster.Domain
         public double Nota { get; set; }
         public string AvaliadoPor { get; set; }
         public string NomeArquivo { get; set; }
-
+        public virtual List<Avaliacao> Avaliacoes { get; set; }
     }
 }

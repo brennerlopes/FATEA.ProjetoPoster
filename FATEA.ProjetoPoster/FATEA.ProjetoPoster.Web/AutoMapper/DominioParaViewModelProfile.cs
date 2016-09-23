@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using FATEA.ProjetoPoster.Domain;
 using FATEA.ProjetoPoster.Web.ViewModels.Curso;
+using FATEA.ProjetoPoster.Web.ViewModels.Avaliacao;
 using FATEA.ProjetoPoster.Web.ViewModels.Evento;
 using FATEA.ProjetoPoster.Web.ViewModels.Poster;
 using System;
@@ -20,6 +21,17 @@ namespace FATEA.ProjetoPoster.Web.AutoMapper
             Mapper.CreateMap<Evento, EventoEdicaoViewModel>();
             Mapper.CreateMap<Poster, PosterIndexViewModel>();
             Mapper.CreateMap<Poster, PosterEdicaoViewModel>();
+            // Avaliacao
+            Mapper.CreateMap<Avaliacao, AvaliacaoIndexViewModel>()
+                .ForMember(m => m.TituloPoster, config =>
+                {
+                    config.MapFrom(src => src.Poster.Titulo);
+                });
+            Mapper.CreateMap<Avaliacao, AvaliacaoDetalhesViewModel>()
+                .ForMember(m => m.TituloPoster, config =>
+                {
+                    config.MapFrom(src => src.Poster.Titulo);
+                });
 
         }
     }

@@ -11,7 +11,7 @@ namespace FATEA.ProjetoPoster.Repository.Common.Entity
     public abstract class EntityCrudRepository<TEntity, TKey> : ICrudRepositorio<TEntity, TKey>
         where TEntity : class
     {
-        private DbContext _contexto;
+        protected DbContext _contexto;
 
         public EntityCrudRepository(DbContext contexto)
         {

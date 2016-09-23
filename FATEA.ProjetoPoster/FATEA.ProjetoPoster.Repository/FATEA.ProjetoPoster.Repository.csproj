@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AvaliacaoRepository.cs" />
     <Compile Include="CursoRepository.cs" />
     <Compile Include="EventoRepository.cs" />
     <Compile Include="PosterRepository.cs" />

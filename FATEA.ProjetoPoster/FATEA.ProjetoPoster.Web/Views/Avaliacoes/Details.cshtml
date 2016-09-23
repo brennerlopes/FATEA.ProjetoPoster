@@ -1,0 +1,73 @@
+﻿@model FATEA.ProjetoPoster.Web.ViewModels.Avaliacao.AvaliacaoDetalhesViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Avaliacao</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TituloPoster)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TituloPoster)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NotaTema)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NotaTema)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NotaIntroducao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NotaIntroducao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NotaDesenvolvimento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NotaDesenvolvimento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NotaResultados)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NotaResultados)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NotaConclusao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NotaConclusao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NotaFinal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NotaFinal)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

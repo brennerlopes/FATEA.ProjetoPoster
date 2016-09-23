@@ -15,6 +15,7 @@ namespace FATEA.ProjetoPoster.DataAccess.Entity.Context
         public DbSet<Curso> Cursos { get; set; }
         public DbSet<Instituicao> Instituicaos { get; set; }
         public DbSet<Poster> Posters { get; set; }
+        public DbSet<Avaliacao> Avaliacoes { get; set; }
 
         public ProjetoPosterDbContext()
         {
@@ -27,6 +28,8 @@ namespace FATEA.ProjetoPoster.DataAccess.Entity.Context
             modelBuilder.Configurations.Add(new PosterTypeConfiguration());
             modelBuilder.Configurations.Add(new CursoTypeConfiguration());
             modelBuilder.Configurations.Add(new EventoTypeConfiguration());
+            modelBuilder.Configurations.Add(new AvaliacaoTypeConfiguration());
         }
+        
     }
 }
