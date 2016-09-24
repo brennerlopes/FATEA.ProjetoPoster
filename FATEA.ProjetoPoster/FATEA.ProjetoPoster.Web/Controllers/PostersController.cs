@@ -54,22 +54,39 @@ namespace FATEA.ProjetoPoster.Web.Controllers
 
             return View();
         }
-
         // POST: Posters/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(PosterEdicaoViewModel viewModel)
-        {          
+        public ActionResult Create(/*PosterEdicaoViewModel viewModel, */HttpPostedFile file)
+        {
             if (ModelState.IsValid)
             {
-                //viewModel.NomeArquivo = "testando_";
-                Poster poster = Mapper.Map<PosterEdicaoViewModel, Poster>(viewModel);
+
+                if (file != null)
+                try
+                {
+                    string path = Path.Combine(Server.MapPath("~/Upload/"),
+                                               Path.GetFileName(file.FileName));
+                    file.SaveAs(path);
+                    ViewBag.Message = "File uploaded successfully";
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Message = "ERROR:" + ex.Message.ToString();
+                }
+            else
+            {
+                ViewBag.Message = "You have not specified a file.";
+            }
+
+          //viewModel.NomeArquivo = "testando_";
+                Poster poster = Mapper.Map<PosterEdicaoViewModel, Poster>(null);
                 _repositorio.Insert(poster);
                 return RedirectToAction("Index");
             }
-            return View(viewModel);
+            return View();
         }
         // GET: Posters/Edit/5
         public ActionResult Edit(int? id)
