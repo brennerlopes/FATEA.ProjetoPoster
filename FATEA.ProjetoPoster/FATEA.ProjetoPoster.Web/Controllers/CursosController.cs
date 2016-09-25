@@ -124,7 +124,7 @@ namespace FATEA.ProjetoPoster.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            _repositorio.DeleteById(id);
+            Curso curso = _repositorio.ById(id);
             return RedirectToAction("Index");
         }
 

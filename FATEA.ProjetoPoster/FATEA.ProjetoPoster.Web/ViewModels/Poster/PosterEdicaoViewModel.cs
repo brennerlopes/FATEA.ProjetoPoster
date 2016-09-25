@@ -7,7 +7,11 @@ using System.Web;
 
 namespace FATEA.ProjetoPoster.Web.ViewModels.Poster
 {
+
     public class PosterEdicaoViewModel
+
+    public  class PosterEdicaoViewModel
+
     {
         [Required(ErrorMessage = "O ID do Poster é obrigatório")]
         public int Id { get; set; }

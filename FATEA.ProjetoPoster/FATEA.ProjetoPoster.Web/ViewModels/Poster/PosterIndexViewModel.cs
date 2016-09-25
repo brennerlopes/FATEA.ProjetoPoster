@@ -7,7 +7,11 @@ using System.Web;
 
 namespace FATEA.ProjetoPoster.Web.ViewModels.Poster
 {
+
     public class PosterIndexViewModel
+
+    public  class PosterIndexViewModel
+
     {
         public int Id { get; set; }
 
