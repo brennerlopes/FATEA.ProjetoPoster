@@ -281,15 +281,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-<<<<<<< 76c24a7fdb81860fb03fc8dd0f743d9e79ef6394
+
 
     <Folder Include="Upload\" />
 	
     <Folder Include="Views\Cursos\" />
 
-=======
+
     <Folder Include="Views\Administrador\" />
->>>>>>> Alteração nos dados de CursosController e PosterIndexViewModel
+
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

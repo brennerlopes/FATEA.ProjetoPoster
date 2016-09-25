@@ -8,8 +8,7 @@ using System.Web;
 namespace FATEA.ProjetoPoster.Web.ViewModels.Poster
 {
 
-    public class PosterEdicaoViewModel
-
+    
     public  class PosterEdicaoViewModel
 
     {
