@@ -175,11 +175,11 @@
     <Compile Include="AutoMapper\DominioParaViewModelProfile.cs" />
     <Compile Include="AutoMapper\ViewModelParaDominioProfile.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-<<<<<<< 76c24a7fdb81860fb03fc8dd0f743d9e79ef6394
+
     <Compile Include="Controllers\AvaliacoesController.cs" />
-=======
+
     <Compile Include="Controllers\AdministradorController.cs" />
->>>>>>> Alteração nos dados de CursosController e PosterIndexViewModel
+
     <Compile Include="Controllers\CursosController.cs" />
     <Compile Include="Controllers\EventosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
