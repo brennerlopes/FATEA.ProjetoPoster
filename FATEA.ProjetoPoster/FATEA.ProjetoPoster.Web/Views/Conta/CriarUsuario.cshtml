@@ -1,0 +1,38 @@
+﻿@model FATEA.ProjetoPoster.Web.ViewModels.Usuario.UsuarioEditViewModel
+@{
+    ViewBag.Title = "CriarUsuario";
+}
+
+<h2>Criação de Usuário</h2>
+@using (Html.BeginForm("CriarUsuario", "Conta", FormMethod.Post))
+  {
+
+
+   <div class="row">
+        @Html.AntiForgeryToken()
+        <div class="form-group col-md-8">
+            @Html.DisplayNameFor(p=> p.NomeUsuario)
+            @Html.TextBoxFor(p => p.NomeUsuario, "", new { @class = "form-control"})
+            @Html.ValidationMessageFor(p=> p.NomeUsuario, "", new { @class = "text-danger"})
+            @Html.ValidationMessage("identity_error", new { @class = "text-danger"})
+        </div>
+        <div class="form-group col-md-8">
+            @Html.DisplayNameFor(p => p.Senha)
+            @Html.PasswordFor(p => p.Senha, new { @class = "form-control"})
+            @Html.ValidationMessageFor(p=> p.Senha, "", new { @class = "text-danger"})
+        </div>
+        <div class="form-group col-md-8">
+            @Html.DisplayNameFor(p => p.RoleId)
+            @Html.DropDownListFor(p => p.RoleId, (SelectList)ViewBag.Roles, new { @class = "form-control" })
+            @Html.ValidationMessageFor(p => p.RoleId)
+    
+
+        </div>
+       </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <input type="submit" class="btn btn-default" value="Salvar Usuário"/>
+        </div>
+    </div>
+}

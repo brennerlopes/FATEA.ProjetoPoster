@@ -166,20 +166,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\AutoMapperConfig.cs" />
-    <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
-    <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Data\App_Start\AutoMapperConfig.cs" />
+    <Compile Include="App_Data\App_Start\BundleConfig.cs" />
+    <Compile Include="App_Data\App_Start\FilterConfig.cs" />
+    <Compile Include="App_Data\App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Data\App_Start\RouteConfig.cs" />
+    <Compile Include="App_Data\App_Start\Startup.Auth.cs" />
     <Compile Include="AutoMapper\DominioParaViewModelProfile.cs" />
     <Compile Include="AutoMapper\ViewModelParaDominioProfile.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-
     <Compile Include="Controllers\AvaliacoesController.cs" />
-
     <Compile Include="Controllers\AdministradorController.cs" />
-
+    <Compile Include="Controllers\ContaController.cs" />
     <Compile Include="Controllers\CursosController.cs" />
     <Compile Include="Controllers\EventosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -188,6 +186,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Identity\ProjetoPosterIdentityDbContext.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -202,6 +201,7 @@
     <Compile Include="ViewModels\Evento\EventoIndexViewModel.cs" />
     <Compile Include="ViewModels\Poster\PosterEdicaoViewModel.cs" />
     <Compile Include="ViewModels\Poster\PosterIndexViewModel.cs" />
+    <Compile Include="ViewModels\Usuario\UsuarioEditViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -278,18 +278,12 @@
     <Content Include="Views\Avaliacoes\Create.cshtml" />
     <Content Include="Views\Avaliacoes\Details.cshtml" />
     <Content Include="Views\Avaliacoes\Index.cshtml" />
+    <Content Include="Views\Conta\CriarUsuario.cshtml" />
+    <Content Include="Views\Conta\Login.cshtml" />
+    <Content Include="Views\Shared\_Menu.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-
-
     <Folder Include="Upload\" />
-	
-    <Folder Include="Views\Cursos\" />
-
-
-    <Folder Include="Views\Administrador\" />
-
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
