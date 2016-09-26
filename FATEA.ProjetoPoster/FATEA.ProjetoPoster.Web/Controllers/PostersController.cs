@@ -59,34 +59,27 @@ namespace FATEA.ProjetoPoster.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(/*PosterEdicaoViewModel viewModel, */HttpPostedFile file)
+        public ActionResult Create(PosterEdicaoViewModel viewModel)
         {
-            if (ModelState.IsValid)
+            viewModel.NomeArquivo = GravarArquivo();
+            if (viewModel.NomeArquivo != null)
             {
-
-                if (file != null)
-                try
+                if (ModelState.IsValid)
                 {
-                    string path = Path.Combine(Server.MapPath("~/Upload/"),
-                                               Path.GetFileName(file.FileName));
-                    file.SaveAs(path);
-                    ViewBag.Message = "File uploaded successfully";
+                    Poster poster = Mapper.Map<PosterEdicaoViewModel, Poster>(viewModel);
+                    _repositorio.Insert(poster);
+                    return RedirectToAction("Index");
                 }
-                catch (Exception ex)
+                else
                 {
-                    ViewBag.Message = "ERROR:" + ex.Message.ToString();
-                }
-            else
-            {
-                ViewBag.Message = "You have not specified a file.";
-            }
 
-          //viewModel.NomeArquivo = "testando_";
-                Poster poster = Mapper.Map<PosterEdicaoViewModel, Poster>(null);
-                _repositorio.Insert(poster);
-                return RedirectToAction("Index");
+                    return View(viewModel);
+                }
             }
-            return View();
+            ModelState.AddModelError("sem_arquivo", "Insira um arquivo.");
+            return View(viewModel);
+
+
         }
         // GET: Posters/Edit/5
         public ActionResult Edit(int? id)
@@ -141,6 +134,20 @@ namespace FATEA.ProjetoPoster.Web.Controllers
         {
             _repositorio.DeleteById(id);
             return RedirectToAction("Index");
+        }
+        private string GravarArquivo()
+        {
+            var fileUpload =  Request.Files["fileUpload"];
+            if (fileUpload != null)
+            {
+                var fileName = Guid.NewGuid().ToString() +
+                  System.IO.Path.GetExtension(fileUpload.FileName);
+                var path = Server.MapPath("~/Upload");
+                fileUpload.SaveAs(Path.Combine(path, fileName));
+                return fileName;
+            }
+            else
+                return null;
         }
     }
 }

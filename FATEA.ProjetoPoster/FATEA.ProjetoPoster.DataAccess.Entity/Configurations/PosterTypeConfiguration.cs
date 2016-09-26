@@ -39,19 +39,20 @@ namespace FATEA.ProjetoPoster.DataAccess.Entity.Configurations
                 .IsRequired();
             Property(a => a.NomeArquivo)
                 .HasColumnName("POS_ARQUIVO")
-                .HasMaxLength(10)
+                .HasMaxLength(80)
                 .IsRequired();
             Property(a => a.Nota)
                 .HasColumnName("POS_NOTA");
-            Property(a => a.Area)
-              .HasColumnName("POS_AREA")
-                 .HasMaxLength(80)
-                .IsRequired();
+
             Property(a => a.AvaliadoPor)
               .HasColumnName("POS_AVALIADOR");
             Property(a => a.Autores)
               .HasColumnName("POS_AUTORES")
                  .HasMaxLength(150)
+                .IsRequired();
+            Property(a => a.Area.Area)
+              .HasColumnName("POS_AREA")
+                 .HasMaxLength(80)
                 .IsRequired();
         }
 
@@ -61,7 +62,7 @@ namespace FATEA.ProjetoPoster.DataAccess.Entity.Configurations
         }
         public override void ConfigureForeignKeys()
         {
-
+            this.Property(t => t.Area.Area).HasColumnName("CUR_ID");
         }
         public override void ConfigureOthers()
         {

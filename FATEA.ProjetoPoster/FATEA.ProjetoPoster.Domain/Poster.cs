@@ -14,7 +14,8 @@ namespace FATEA.ProjetoPoster.Domain
         public string PalavraChave { get; set; }
         public string Resumo { get; set; }
         public string Modalidade { get; set; }
-        public string Area { get; set; }
+
+        public virtual Curso Area { get; set; }
         public double Nota { get; set; }
         public string AvaliadoPor { get; set; }
         public string NomeArquivo { get; set; }

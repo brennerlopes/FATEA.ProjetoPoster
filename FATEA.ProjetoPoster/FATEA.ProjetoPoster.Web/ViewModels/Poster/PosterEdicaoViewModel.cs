@@ -30,13 +30,13 @@ namespace FATEA.ProjetoPoster.Web.ViewModels.Poster
         [MaxLength(150, ErrorMessage = "A palavra chave deve ter no máximo 150 caracteres.")]
         public string PalavraChave { get; set; }
 
-        [DisplayName("Resumo")]    
+        [DisplayName("Resumo")]
         [Required(ErrorMessage = "Por favor, descreva um resumo do poster.")]
-        [MaxLength(400, ErrorMessage = "A palavra chave deve ter no máximo 400 caracteres.")]
+        [MaxLength(450, ErrorMessage = "O resumo deve ter no máximo 450 caracteres.")]
         public string Resumo { get; set; }
 
         [DisplayName("Modalidade")]
-        [Required(ErrorMessage = "Modalidade do poster é obrigatório.")]
+        [Required(ErrorMessage = "Preencha")]
         public string Modalidade { get; set; }
 
         [DisplayName("Nota")]
@@ -47,19 +47,14 @@ namespace FATEA.ProjetoPoster.Web.ViewModels.Poster
         //[Required(ErrorMessage = "Nome do avaliador")]
         public string AvaliadoPor { get; set; }
 
-        
-        [DisplayName("Arquivo")]
-        [Required(ErrorMessage = "Insira um arquivo.")]
+
+        // [DisplayName("Arquivo")]
+        //[Required(ErrorMessage = "Insira um arquivo.")]
         public string NomeArquivo { get; set; }
 
         [DisplayName("Area")]
         [Required(ErrorMessage = "Por favor, insira a Area")]
-        [MaxLength(100, ErrorMessage = "O Título deve ter no máximo 100 caracteres.")]
+        [MaxLength(100, ErrorMessage = "Por favor, selecione")]
         public string Area { get; set; }
-
-       
-      
-    
-
-}
+    }
 }
