@@ -13,7 +13,16 @@ namespace FATEA.ProjetoPoster.Web.ViewModels.Poster
 
     {
         [Required(ErrorMessage = "O ID do Poster é obrigatório")]
-        public int Id { get; set; }
+        public long Id { get; set; }
+
+
+        [DisplayName("Evento")]
+        [Required(ErrorMessage = "Insira o Evento")]
+        public int IdEvento { get; set; }
+
+        [DisplayName("Curso")]
+        [Required(ErrorMessage = "Insira Curso")]
+        public long IdCurso { get; set; }
 
         [DisplayName("Título")]
         [Required(ErrorMessage = "O Título é obrigatório")]
@@ -40,21 +49,14 @@ namespace FATEA.ProjetoPoster.Web.ViewModels.Poster
         public string Modalidade { get; set; }
 
         [DisplayName("Nota")]
-        //[Required(ErrorMessage = "Insira área do Poster.")]
+
         public double Nota { get; set; }
 
         [DisplayName("Avaliador")]
-        //[Required(ErrorMessage = "Nome do avaliador")]
+
         public string AvaliadoPor { get; set; }
-
-
-        // [DisplayName("Arquivo")]
-        //[Required(ErrorMessage = "Insira um arquivo.")]
         public string NomeArquivo { get; set; }
 
-        [DisplayName("Area")]
-        [Required(ErrorMessage = "Por favor, insira a Area")]
-        [MaxLength(100, ErrorMessage = "Por favor, selecione")]
-        public string Area { get; set; }
+
     }
 }

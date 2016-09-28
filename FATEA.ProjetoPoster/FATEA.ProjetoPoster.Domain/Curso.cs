@@ -11,5 +11,7 @@ namespace FATEA.ProjetoPoster.Domain
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Area { get; set; }
+        public virtual List<Poster> Posters { get; set; }
+
     }
 }

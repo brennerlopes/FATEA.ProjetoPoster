@@ -33,6 +33,18 @@ namespace FATEA.ProjetoPoster.Web.AutoMapper
                     config.MapFrom(src => src.Poster.Titulo);
                 });
 
+            Mapper.CreateMap<Poster, PosterIndexViewModel>()
+                .ForMember(m => m.NomeCurso, config =>
+                {
+                    config.MapFrom(src => src.Curso.Nome);
+                });
+
+            Mapper.CreateMap<Poster, PosterIndexViewModel>()
+               .ForMember(m => m.NomeEvento, config =>
+               {
+                   config.MapFrom(src => src.Evento.Nome);
+               });
+
         }
     }
 }

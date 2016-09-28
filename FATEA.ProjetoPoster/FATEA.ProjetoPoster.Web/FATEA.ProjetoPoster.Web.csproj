@@ -284,9 +284,6 @@
     <Content Include="Views\Shared\_Menu.cshtml" />
   </ItemGroup>
   <ItemGroup>
-
-    <Folder Include="App_Data\" />
-
     <Folder Include="Upload\" />
   </ItemGroup>
   <ItemGroup>

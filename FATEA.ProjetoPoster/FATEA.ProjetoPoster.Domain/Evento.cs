@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace FATEA.ProjetoPoster.Domain
 {
@@ -14,5 +15,6 @@ namespace FATEA.ProjetoPoster.Domain
         public DateTime DataInicio { get; set; }
         public DateTime DataFim { get; set; }
         public string Informacoes { get; set; }
+        public virtual List<Poster> Posters { get; set; }
     }
 }

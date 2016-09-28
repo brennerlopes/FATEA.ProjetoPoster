@@ -75,6 +75,10 @@
     <Compile Include="Migrations\201609210328263_AvaliacaoTableCreation.Designer.cs">
       <DependentUpon>201609210328263_AvaliacaoTableCreation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609280845459_UpdateTablePoster.cs" />
+    <Compile Include="Migrations\201609280845459_UpdateTablePoster.Designer.cs">
+      <DependentUpon>201609280845459_UpdateTablePoster.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Configurations\CursoTypeConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -107,6 +111,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609210328263_AvaliacaoTableCreation.resx">
       <DependentUpon>201609210328263_AvaliacaoTableCreation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609280845459_UpdateTablePoster.resx">
+      <DependentUpon>201609280845459_UpdateTablePoster.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

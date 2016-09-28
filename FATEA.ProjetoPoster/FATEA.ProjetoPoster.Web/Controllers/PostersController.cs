@@ -14,22 +14,23 @@ using FATEA.ProjetoPoster.DataAccess.Entity.Context;
 using FATEA.ProjetoPoster.Web.ViewModels.Poster;
 using AutoMapper;
 using System.IO;
+using FATEA.ProjetoPoster.Web.ViewModels.Curso;
+using FATEA.ProjetoPoster.Web.ViewModels.Evento;
 
 namespace FATEA.ProjetoPoster.Web.Controllers
 {
     public class PostersController : Controller
     {
-        private ICrudRepositorio<Poster, int> _repositorio = new PosterRepository(new ProjetoPosterDbContext());
-
+        private ICrudRepositorio<Poster, long> _repositorio = new PosterRepository(new ProjetoPosterDbContext());
+        private ICrudRepositorio<Curso, long> _repositorioCurso = new CursoRepository(new ProjetoPosterDbContext());
+        private ICrudRepositorio<Evento, long> _repositorioEvento = new EventoRepository(new ProjetoPosterDbContext());
         // GET: Posters
         public ActionResult Index()
         {
-
             List<PosterIndexViewModel> viewModels = new List<PosterIndexViewModel>();
             List<Poster> posters = _repositorio.Select();
             viewModels = Mapper.Map<List<Poster>, List<PosterIndexViewModel>>(posters);
             return View(viewModels);
-
         }
 
         // GET: Posters/Details/5
@@ -51,9 +52,29 @@ namespace FATEA.ProjetoPoster.Web.Controllers
         // GET: Posters/Create
         public ActionResult Create()
         {
-
+            CriarListaDeEventos();
+            CriarListaDeCursos();
             return View();
+
+
         }
+        private void CriarListaDeEventos()
+        {
+            List<Evento> eventos = _repositorioEvento.Select(where: x => x.Status != false);
+            List<EventoIndexViewModel> eventoViewModels = Mapper.Map<List<Evento>, List<EventoIndexViewModel>>(eventos);
+
+
+            ViewBag.EventoId = new SelectList(eventoViewModels, "Id", "Nome");
+        }
+
+        private void CriarListaDeCursos()
+        {
+            List<Curso> cursos = _repositorioCurso.Select();
+            List<CursoIndexViewModel> cursoViewModels = Mapper.Map<List<Curso>, List<CursoIndexViewModel>>(cursos);
+            ViewBag.CursoId = new SelectList(cursoViewModels, "Id", "Nome");
+
+        }
+
         // POST: Posters/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -73,14 +94,16 @@ namespace FATEA.ProjetoPoster.Web.Controllers
                 else
                 {
 
+                    CriarListaDeCursos();
+                    CriarListaDeEventos();
                     return View(viewModel);
                 }
             }
             ModelState.AddModelError("sem_arquivo", "Insira um arquivo.");
+            CriarListaDeCursos();
             return View(viewModel);
-
-
         }
+
         // GET: Posters/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -137,7 +160,7 @@ namespace FATEA.ProjetoPoster.Web.Controllers
         }
         private string GravarArquivo()
         {
-            var fileUpload =  Request.Files["fileUpload"];
+            var fileUpload = Request.Files["fileUpload"];
             if (fileUpload != null)
             {
                 var fileName = Guid.NewGuid().ToString() +

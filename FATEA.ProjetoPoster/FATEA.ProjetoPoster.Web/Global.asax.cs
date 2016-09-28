@@ -21,7 +21,9 @@ namespace FATEA.ProjetoPoster.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AutoMapperConfig.Configure();
             App_Start.AutoMapperConfig.Configure();
-       
+
+
+
         }
     }
 }

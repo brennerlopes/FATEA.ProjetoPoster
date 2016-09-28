@@ -12,6 +12,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.NomeEvento)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Titulo)
         </th>
         <th>
@@ -27,7 +30,7 @@
             @Html.DisplayNameFor(model => model.Modalidade)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Area)
+            @Html.DisplayNameFor(model => model.NomeCurso)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Nota)
@@ -43,6 +46,9 @@
 
 @foreach (var item in Model) {
     <tr>
+         <td>
+            @Html.DisplayFor(modelItem => item.NomeEvento)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Titulo)
         </td>
@@ -59,7 +65,7 @@
             @Html.DisplayFor(modelItem => item.Modalidade)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Area)
+            @Html.DisplayFor(modelItem => item.NomeCurso)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Nota)

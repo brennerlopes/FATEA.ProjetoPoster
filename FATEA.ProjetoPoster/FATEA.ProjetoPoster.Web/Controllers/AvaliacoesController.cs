@@ -19,7 +19,7 @@ namespace FATEA.ProjetoPoster.Web.Controllers
     public class AvaliacoesController : Controller
     {
         private ICrudRepositorio<Avaliacao, long> _repositorio = new AvaliacaoRepository(new ProjetoPosterDbContext());
-        private ICrudRepositorio<Poster, int> _repositorioPoster = new PosterRepository(new ProjetoPosterDbContext());
+        private ICrudRepositorio<Poster, long> _repositorioPoster = new PosterRepository(new ProjetoPosterDbContext());
 
         // GET: Avaliacoes
         public ActionResult Index()

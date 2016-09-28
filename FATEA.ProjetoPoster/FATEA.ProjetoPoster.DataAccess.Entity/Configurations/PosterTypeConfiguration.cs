@@ -42,18 +42,22 @@ namespace FATEA.ProjetoPoster.DataAccess.Entity.Configurations
                 .HasMaxLength(80)
                 .IsRequired();
             Property(a => a.Nota)
-                .HasColumnName("POS_NOTA");
-
+                .HasColumnName("POS_NOTA")
+                .IsOptional();
             Property(a => a.AvaliadoPor)
-              .HasColumnName("POS_AVALIADOR");
+              .HasColumnName("POS_AVALIADOR")
+             .IsOptional();
             Property(a => a.Autores)
               .HasColumnName("POS_AUTORES")
                  .HasMaxLength(150)
                 .IsRequired();
-            Property(a => a.Area.Area)
-              .HasColumnName("POS_AREA")
-                 .HasMaxLength(80)
+            Property(a => a.IdCurso)
+              .HasColumnName("POS_CURSO")
                 .IsRequired();
+            Property(a => a.IdEvento)
+              .HasColumnName("POS_EVENTO")
+                .IsRequired();
+
         }
 
         public override void ConfigurePrimaryKeys()
@@ -62,7 +66,14 @@ namespace FATEA.ProjetoPoster.DataAccess.Entity.Configurations
         }
         public override void ConfigureForeignKeys()
         {
-            this.Property(t => t.Area.Area).HasColumnName("CUR_ID");
+            HasRequired(r => r.Curso)
+                .WithMany(m => m.Posters)
+                .HasForeignKey(fk => fk.IdCurso)
+                .WillCascadeOnDelete(false);
+            HasRequired(r => r.Evento)
+               .WithMany(m => m.Posters)
+               .HasForeignKey(fk => fk.IdEvento)
+               .WillCascadeOnDelete(false);
         }
         public override void ConfigureOthers()
         {

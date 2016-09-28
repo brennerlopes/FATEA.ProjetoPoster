@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
+
 namespace FATEA.ProjetoPoster.Web.ViewModels.Poster
 {
 
@@ -14,7 +15,9 @@ namespace FATEA.ProjetoPoster.Web.ViewModels.Poster
     {
         public int Id { get; set; }
 
-        [DisplayName("Nome do Poster")]
+        [DisplayName("Evento")]
+        public string NomeEvento { get; set; }
+
         public string Titulo { get; set; }
 
         [DisplayName("Autores")]
@@ -29,8 +32,8 @@ namespace FATEA.ProjetoPoster.Web.ViewModels.Poster
         [DisplayName("Modalidade")]
         public string Modalidade { get; set; }
 
-        [DisplayName("Area")]
-        public string Area { get; set; }
+        [DisplayName("Curso")]
+        public string NomeCurso { get; set; }
 
         [DisplayName("Nota")]
         public double Nota { get; set; }
@@ -40,6 +43,8 @@ namespace FATEA.ProjetoPoster.Web.ViewModels.Poster
 
         [DisplayName("Nome do Arquivo")]
         public string NomeArquivo { get; set; }
+
+
 
     }
 }
