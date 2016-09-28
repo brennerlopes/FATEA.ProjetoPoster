@@ -201,6 +201,7 @@
     <Compile Include="ViewModels\Evento\EventoIndexViewModel.cs" />
     <Compile Include="ViewModels\Poster\PosterEdicaoViewModel.cs" />
     <Compile Include="ViewModels\Poster\PosterIndexViewModel.cs" />
+    <Compile Include="ViewModels\Usuario\UsuarioLoginViewModel.cs" />
     <Compile Include="ViewModels\Usuario\UsuarioEditViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

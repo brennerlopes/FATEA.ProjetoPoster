@@ -13,7 +13,7 @@ namespace FATEA.ProjetoPoster.Web
     {
         public void Configuration(IAppBuilder app)
         {
-         //   app.Use<IdentityDbContext>(new ProjetoPosterDbContext());
+          // app.Use<IdentityDbContext>(new ProjetoPosterDbContext());
            app.CreatePerOwinContext<ProjetoPosterIdentityDbContext>(() => new ProjetoPosterIdentityDbContext());
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {

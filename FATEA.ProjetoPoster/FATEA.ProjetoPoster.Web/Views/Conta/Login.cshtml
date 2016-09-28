@@ -1,4 +1,4 @@
-﻿@model FATEA.ProjetoPoster.Web.ViewModels.Usuario.UsuarioEditViewModel
+﻿@model FATEA.ProjetoPoster.Web.ViewModels.Usuario.UsuarioLoginViewModel
 @{
     ViewBag.Title = "Login de Usuário";
 }
@@ -11,9 +11,9 @@
     <div class="row">
         @Html.AntiForgeryToken()
         <div class="form-group col-md-8">
-            @Html.DisplayNameFor(p=> p.NomeUsuario)
-            @Html.TextBoxFor(p => p.NomeUsuario, "", new { @class = "form-control"})
-            @Html.ValidationMessageFor(p=> p.NomeUsuario, "", new { @class = "text-danger"})
+            @Html.DisplayNameFor(p=> p.EmailUsuario)
+            @Html.TextBoxFor(p => p.EmailUsuario, "", new { @class = "form-control"})
+            @Html.ValidationMessageFor(p=> p.EmailUsuario, "", new { @class = "text-danger"})
             @Html.ValidationMessage("identity_error", new { @class = "text-danger"})
         </div>
         <div class="form-group col-md-8">

@@ -7,26 +7,9 @@ using System.Web;
 
 namespace FATEA.ProjetoPoster.Web.ViewModels.Usuario
 {
-    public class UsuarioEditViewModel
+    public class UsuarioLoginViewModel
     {
-
-        [DisplayName("Nome Completo")]
-        [Required(ErrorMessage ="O nome é obrigatório")]
-        [MaxLength(100, ErrorMessage = "O nome completo deve conter até 100 caracteres")]
-        [MinLength(5, ErrorMessage = "O nome completo deve conter no mínimo 5 caracteres ")]
-        public string NomeUsuario { get; set; }
-
-        [DisplayName("RG")]
-        [MaxLength(12, ErrorMessage = "O RG deve conter no máximo 12 números")]
-        public int RgUsuario { get; set; }
         
-
-        [DisplayName("CPF")]
-        [Required(ErrorMessage = "O CPF é obrigatório")]
-        [MaxLength(14, ErrorMessage = "O CPF deve conter no máximo 14 dígitos")]
-        
-        public int CpfUsuario { get; set; }
-
         [DisplayName("Email")]
         [Required(ErrorMessage = "O email do usuário é obrigatório")]
         [MaxLength(30, ErrorMessage = "O email deve conter até 30 caracteres")]
@@ -42,10 +25,6 @@ namespace FATEA.ProjetoPoster.Web.ViewModels.Usuario
 
         public string Senha { get; set; }
 
-        [DisplayName("Perfil")]
-        [Required(ErrorMessage = "O perfil do usuário é obrigatório")]
-
-        public string RoleId { get; set; }
-
+        
     }
 }

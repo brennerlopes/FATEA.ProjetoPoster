@@ -10,6 +10,7 @@ using System.Net;
 using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
+using FATEA.ProjetoPoster.Web.Models;
 
 namespace FATEA.ProjetoPoster.Web.Controllers
 
@@ -30,7 +31,7 @@ namespace FATEA.ProjetoPoster.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateUser(UsuarioEditViewModel viewModel)
+        public  ActionResult CriarUsuario(UsuarioEditViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
@@ -38,10 +39,12 @@ namespace FATEA.ProjetoPoster.Web.Controllers
                     = new UserStore<IdentityUser>(new ProjetoPosterIdentityDbContext());
                 UserManager<IdentityUser> userManager
                     = new UserManager<IdentityUser>(userStore);
-                IdentityUser user = new IdentityUser
+               IdentityUser user = new IdentityUser
                 {
-                    UserName = viewModel.NomeUsuario,
-                    Email = viewModel.NomeUsuario
+                     NomeUsuario = viewModel.NomeUsuario,
+                     Email = viewModel.EmailUsuario,
+                     RgUsuario = viewModel.RgUsuario,
+                     CpfUsuario = viewModel.CpfUsuario
                 };
 
                 IdentityResult result = userManager.Create(user, viewModel.Senha);
@@ -53,7 +56,7 @@ namespace FATEA.ProjetoPoster.Web.Controllers
                         = new RoleManager<IdentityRole>(roleStore);
                     IdentityRole selectRole
                         = roleManager.Roles.Single(s => s.Id == viewModel.RoleId);
-                    IdentityUser insertedUser = userManager.Find(viewModel.NomeUsuario, viewModel.Senha);
+                    IdentityUser insertedUser = userManager.Find(viewModel.EmailUsuario, viewModel.Senha);
                     userManager.AddToRole(insertedUser.Id, selectRole.Name);
                     return RedirectToAction("Index", "Home");
                 }
@@ -72,7 +75,7 @@ namespace FATEA.ProjetoPoster.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(UsuarioEditViewModel viewModel)
+        public ActionResult Login(UsuarioLoginViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
@@ -81,7 +84,7 @@ namespace FATEA.ProjetoPoster.Web.Controllers
                 UserManager<IdentityUser> userManager
                     = new UserManager<IdentityUser>(userStore);
 
-                IdentityUser user = userManager.Find(viewModel.NomeUsuario, viewModel.Senha);
+                IdentityUser user = userManager.Find(viewModel.EmailUsuario, viewModel.Senha);
 
                 if (user != null)
                 {

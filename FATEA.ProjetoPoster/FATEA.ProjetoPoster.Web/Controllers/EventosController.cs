@@ -53,6 +53,7 @@ namespace FATEA.ProjetoPoster.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        
         public ActionResult Create(EventoEdicaoViewModel viewModel)
         {
             if (ModelState.IsValid)

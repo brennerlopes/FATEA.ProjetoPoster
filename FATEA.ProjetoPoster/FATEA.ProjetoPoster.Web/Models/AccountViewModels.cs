@@ -64,6 +64,7 @@ namespace FATEA.ProjetoPoster.Web.Models
 
     public class RegisterViewModel
     {
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
