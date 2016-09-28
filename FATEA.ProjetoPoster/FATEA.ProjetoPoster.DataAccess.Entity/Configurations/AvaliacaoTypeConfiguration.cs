@@ -37,6 +37,9 @@ namespace FATEA.ProjetoPoster.DataAccess.Entity.Configurations
             Property(p => p.PosterId)
                 .HasColumnName("POS_ID")
                 .IsRequired();
+            Property(p => p.AvaliadorId)
+                .HasColumnName("AVL_ID")
+                .IsRequired();
         }
 
         public override void ConfigureForeignKeys()

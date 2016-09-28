@@ -20,6 +20,7 @@ namespace FATEA.ProjetoPoster.Web.AutoMapper
             Mapper.CreateMap<PosterEdicaoViewModel, Poster>();
             Mapper.CreateMap<CursoEdicaoViewModel, Curso>();
             Mapper.CreateMap<AvaliacaoCriacaoViewModel, Avaliacao>();
+            Mapper.CreateMap<AtribuirPosterViewModel, Avaliacao>();
         }
 
     }

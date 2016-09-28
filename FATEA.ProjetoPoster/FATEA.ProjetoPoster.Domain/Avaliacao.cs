@@ -17,5 +17,6 @@ namespace FATEA.ProjetoPoster.Domain
         public decimal NotaFinal { get; set; }
         public virtual Poster Poster { get; set; }
         public int PosterId { get; set; }
+        public string AvaliadorId { get; set; }
     }
 }
