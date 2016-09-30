@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace FATEA.ProjetoPoster.Domain
 {
-    class User
+
+
+    public class User
     {
     }
 }

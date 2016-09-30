@@ -28,8 +28,9 @@
            @Html.TextBoxFor(p => p.CpfUsuario, "", new { @class = "form-control" })
            @Html.ValidationMessageFor(p => p.CpfUsuario, "", new { @class = "text-danger" })
            @Html.ValidationMessage("identity_error", new { @class = "text-danger" })
-       </div> 
-         
+
+       </div>
+
        <div class="form-group col-md-8">
            @Html.DisplayNameFor(p => p.EmailUsuario)
            @Html.TextBoxFor(p => p.EmailUsuario, "", new { @class = "form-control" })
