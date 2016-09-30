@@ -35,16 +35,19 @@ namespace FATEA.ProjetoPoster.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                UserStore<IdentityUser> userStore
-                    = new UserStore<IdentityUser>(new ProjetoPosterIdentityDbContext());
-                UserManager<IdentityUser> userManager
-                    = new UserManager<IdentityUser>(userStore);
-               IdentityUser user = new IdentityUser
+                UserStore<Usuario> userStore
+                    = new UserStore<Usuario>(new ProjetoPosterIdentityDbContext());
+                UserManager<Usuario> userManager
+                    = new UserManager<Usuario>(userStore);
+                Usuario user = new Usuario
                 {
-                     NomeUsuario = viewModel.NomeUsuario,
-                     Email = viewModel.EmailUsuario,
-                     RgUsuario = viewModel.RgUsuario,
-                     CpfUsuario = viewModel.CpfUsuario
+                            NomeUsuario = viewModel.NomeUsuario,
+                            Email = viewModel.EmailUsuario,
+                            RgUsuario = viewModel.RgUsuario,
+                            CpfUsuario = viewModel.CpfUsuario
+
+
+
                 };
 
                 IdentityResult result = userManager.Create(user, viewModel.Senha);
@@ -58,10 +61,12 @@ namespace FATEA.ProjetoPoster.Web.Controllers
                         = roleManager.Roles.Single(s => s.Id == viewModel.RoleId);
                     IdentityUser insertedUser = userManager.Find(viewModel.EmailUsuario, viewModel.Senha);
                     userManager.AddToRole(insertedUser.Id, selectRole.Name);
+
                     return RedirectToAction("Index", "Home");
                 }
                 else
                 {
+
                     ModelState.AddModelError("identity_error", result.Errors.First());
                     return View(viewModel);
                 }
@@ -79,12 +84,12 @@ namespace FATEA.ProjetoPoster.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                UserStore<IdentityUser> userStore
-                    = new UserStore<IdentityUser>(new ProjetoPosterIdentityDbContext());
-                UserManager<IdentityUser> userManager
-                    = new UserManager<IdentityUser>(userStore);
+                UserStore<Usuario> userStore
+                    = new UserStore<Usuario>(new ProjetoPosterIdentityDbContext());
+                UserManager<Usuario> userManager
+                    = new UserManager<Usuario>(userStore);
 
-                IdentityUser user = userManager.Find(viewModel.EmailUsuario, viewModel.Senha);
+                Usuario user = userManager.Find(viewModel.EmailUsuario, viewModel.Senha);
 
                 if (user != null)
                 {
