@@ -19,17 +19,17 @@ namespace FATEA.ProjetoPoster.Web.ViewModels.Usuario
         public string NomeUsuario { get; set; }
 
         [DisplayName("RG")]
-        [MaxLength(11, ErrorMessage = "O RG deve conter no máximo 12 números")]
-        [MinLength(8, ErrorMessage = "O nome completo deve conter no mínimo 5 caracteres ")]
-        public int RgUsuario { get; set; }
+        //[MaxLength(11, ErrorMessage = "O RG deve conter no máximo 12 números")]
+        //[MinLength(8, ErrorMessage = "O nome completo deve conter no mínimo 5 caracteres ")]
+        public string RgUsuario { get; set; }
         
 
         [DisplayName("CPF")]
         [Required(ErrorMessage = "O CPF é obrigatório")]
         [MaxLength(14, ErrorMessage = "O CPF deve conter no máximo 14 dígitos")]
-        [MinLength(11, ErrorMessage = "O nome completo deve conter no mínimo 5 caracteres ")]
+        //[MinLength(11, ErrorMessage = "O nome completo deve conter no mínimo 5 caracteres ")]
 
-        public int CpfUsuario { get; set; }
+        public string CpfUsuario { get; set; }
 
         [DisplayName("Email")]
         [Required(ErrorMessage = "O email do usuário é obrigatório")]

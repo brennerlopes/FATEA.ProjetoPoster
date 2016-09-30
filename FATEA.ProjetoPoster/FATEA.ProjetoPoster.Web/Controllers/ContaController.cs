@@ -21,17 +21,14 @@ namespace FATEA.ProjetoPoster.Web.Controllers
     {
         public ActionResult CriarUsuario()
         {
-            RoleStore<IdentityRole> roleStore
-                = new RoleStore<IdentityRole>(new ProjetoPosterIdentityDbContext());
-            RoleManager<IdentityRole> roleManager
-                = new RoleManager<IdentityRole>(roleStore);
-            ViewBag.Roles = new SelectList(roleManager.Roles, "ID", "Name");
+
+            PopularPerfil();
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public  ActionResult CriarUsuario(UsuarioEditViewModel viewModel)
+        public ActionResult CriarUsuario(UsuarioEditViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
@@ -41,10 +38,10 @@ namespace FATEA.ProjetoPoster.Web.Controllers
                     = new UserManager<Usuario>(userStore);
                 Usuario user = new Usuario
                 {
-                            NomeUsuario = viewModel.NomeUsuario,
-                            Email = viewModel.EmailUsuario,
-                            RgUsuario = viewModel.RgUsuario,
-                            CpfUsuario = viewModel.CpfUsuario
+                    NomeUsuario = viewModel.NomeUsuario,
+                    UserName = viewModel.EmailUsuario,
+                    RgUsuario = viewModel.RgUsuario,
+                    CpfUsuario = viewModel.CpfUsuario
 
 
 
@@ -66,11 +63,12 @@ namespace FATEA.ProjetoPoster.Web.Controllers
                 }
                 else
                 {
-
+                    PopularPerfil();
                     ModelState.AddModelError("identity_error", result.Errors.First());
                     return View(viewModel);
                 }
             }
+            PopularPerfil();
             return View(viewModel);
         }
         public ActionResult Login()
@@ -108,6 +106,7 @@ namespace FATEA.ProjetoPoster.Web.Controllers
                 }
 
             }
+
             return View(viewModel);
         }
 
@@ -119,6 +118,15 @@ namespace FATEA.ProjetoPoster.Web.Controllers
 
             authManager.SignOut();
             return RedirectToAction("Login", "Conta");
+        }
+
+        private void PopularPerfil()
+        {
+            RoleStore<IdentityRole> roleStore
+                = new RoleStore<IdentityRole>(new ProjetoPosterIdentityDbContext());
+            RoleManager<IdentityRole> roleManager
+                = new RoleManager<IdentityRole>(roleStore);
+            ViewBag.Roles = new SelectList(roleManager.Roles, "Id", "Name");
         }
 
     }
