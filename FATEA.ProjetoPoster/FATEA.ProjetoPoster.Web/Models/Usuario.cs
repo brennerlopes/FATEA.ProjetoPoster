@@ -21,8 +21,6 @@ namespace FATEA.ProjetoPoster.Web.Models
         {
             
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
-           
-
             return userIdentity;
         }
 
