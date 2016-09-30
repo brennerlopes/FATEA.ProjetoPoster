@@ -13,6 +13,7 @@ namespace FATEA.ProjetoPoster.Web.Models
     public class Usuario : IdentityUser
     {
         public string NomeUsuario { get; set; }
+
         public string RgUsuario { get; set; }
         public string CpfUsuario { get; set; }
         public string EmailUsuario { get; set; }
