@@ -13,21 +13,35 @@
                 <li>@Html.ActionLink("Home", "Index", "Home")</li>
                 <li>@Html.ActionLink("Sobre", "About", "Home")</li>
                 <li>@Html.ActionLink("Contato", "Contact", "Home")</li>
-                @if (Request.IsAuthenticated)
+
+                @if (User.IsInRole("ADMINISTRADOR"))
                 {
-                    <li><a href="#">Bem-vindo, @(User.Identity.Name)</a></li>
+                    <li>@Html.ActionLink("Eventos", "Create", "Eventos")</li>
+                    <li>@Html.ActionLink("Cursos", "Create", "Cursos")</li>
+                    <li><a href="#">Bem-vindo Admin, @(User.Identity.Name)</a></li>
+                    <li>@Html.ActionLink("Sair", "Logout", "Conta")</li>
+                }
+                else if(User.IsInRole("ALUNO")){
+                        <li>@Html.ActionLink("Posters", "Create", "Posters")</li>
+                        <li><a href="#">Bem-vindo Aluno, @(User.Identity.Name)</a></li>
+                        <li>@Html.ActionLink("Sair", "Logout", "Conta")</li>
+                }
+                else if (User.IsInRole("AVALIADOR"))
+                {
+                    <li>@Html.ActionLink("Eventos", "Details", "Eventos")</li>
+                    <li><a href="#">Bem-vindo Avaliador, @(User.Identity.Name)</a></li>
                     <li>@Html.ActionLink("Sair", "Logout", "Conta")</li>
                 }
 
-                else
+                 else
                 {
                     <li>@Html.ActionLink("Registrar", "CriarUsuario", "Conta");</li>
                     <li>@Html.ActionLink("Entrar", "Login", "Conta");</li>
-                    
-
                 }
+            
+
             </ul>
-            @Html.Partial("_LoginPartial")
+          
         </div>
     </div>
 </div>
