@@ -37,25 +37,24 @@ namespace FATEA.ProjetoPoster.Web.Models
             {
                 base.OnModelCreating(modelBuilder);
 
-                modelBuilder.Entity<Usuario>()
-                   .ToTable("NomeUsuario")
+                modelBuilder.Entity<Usuario>()                 
                    .Property(p => p.NomeUsuario)
                    .HasColumnName("NomeUsuario");
 
                 modelBuilder.Entity<Usuario>()
-                   .ToTable("RgUsuario")
+                
                    .Property(p => p.RgUsuario)
                    .HasColumnName("RgUsuario");
 
                 modelBuilder.Entity<Usuario>()
-                    .ToTable("CpfUsuario")
-                    .Property(p => p.CpfUsuario)
-                    .HasColumnName("CpfUsuario");
-
-                modelBuilder.Entity<Usuario>()
-                  .ToTable("EmailUsuario")
+                  
                   .Property(p => p.EmailUsuario)
                   .HasColumnName("EmailUsuario");
+
+                modelBuilder.Entity<Usuario>()
+                 
+                    .Property(p => p.CpfUsuario)
+                    .HasColumnName("CpfUsuario");
 
 
 
