@@ -22,12 +22,48 @@
         <p><a class="btn btn-default" href="http://localhost:12849/Eventos/Create">Cadastrar Evento &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>DISTRIBUIR AVALIAÇÕES</h2>
+        <h2>ATRIBUIR AVALIAÇÕES</h2>
         <p>Distribua os trabalhos para os avaliadores!</p>
-        <p><a class="btn btn-default" href="http://localhost:12849/Avaliacoes/Create">Distribuir &raquo;</a></p>
+        <p><a class="btn btn-default" href="http://localhost:12849/Posters/AtribuirPoster">Atribuir &raquo;</a></p>
     </div>
 </div>
-}else
+}
+else if (User.IsInRole("AVALIADOR"))
 {
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Avaliar Posters</h2>
+            <p>
+              Avaliçao de posters de todos os alunos!
+            </p>
+            <p><a class="btn btn-default" href="http://localhost:12849/Posters/Create">Avaliar &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Visualizar Avalições</h2>
+            <p>Visualização de avaliações definidas aos alunos!</p>
+            <p><a class="btn btn-default" href="http://localhost:12849/Posters/Details">Visualizar &raquo;</a></p>
+        </div>
+       
+    </div>
 
 }
+else if (User.IsInRole("ALUNOS"))
+{
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Enviar Posters</h2>
+            <p>
+                Envie o seu Artigo Científico!
+            </p>
+            <p><a class="btn btn-default" href="http://localhost:12849/Posters/Create">Avaliar &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>VISUALIZAR AVALIAÇÕES</h2>
+            <p>Visualização de avaliações!</p>
+            <p><a class="btn btn-default" href="http://localhost:12849/Posters/Details">Visualizar &raquo;</a></p>
+        </div>
+
+    </div>
+
+}
+

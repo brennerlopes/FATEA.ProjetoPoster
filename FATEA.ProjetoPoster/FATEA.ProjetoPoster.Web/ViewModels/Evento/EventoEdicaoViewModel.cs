@@ -4,9 +4,11 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace FATEA.ProjetoPoster.Web.ViewModels.Evento
 {
+    [Authorize]
     public class EventoEdicaoViewModel
     {
         [Required(ErrorMessage = "O ID do evento é obrigatório")]

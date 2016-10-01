@@ -20,7 +20,7 @@ namespace FATEA.ProjetoPoster.Web.ViewModels.Usuario
         [DisplayName("Senha")]
         [Required(ErrorMessage = "A senha é obrigatória")]
         [DataType(DataType.Password)]
-        [MinLength(6, ErrorMessage = "A senha deve conter no mínimo 6 caracteres")]
+        [MinLength(6, ErrorMessage = "Senha ou Usuário Incorretos")]
         [MaxLength(14, ErrorMessage ="A senha deve conter no máximo 14 caracteres")]
 
         public string Senha { get; set; }

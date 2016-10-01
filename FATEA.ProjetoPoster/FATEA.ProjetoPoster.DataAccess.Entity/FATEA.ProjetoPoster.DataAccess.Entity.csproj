@@ -78,8 +78,8 @@
     <Compile Include="Migrations\201609280845459_UpdateTablePoster.cs" />
     <Compile Include="Migrations\201609280845459_UpdateTablePoster.Designer.cs">
       <DependentUpon>201609280845459_UpdateTablePoster.cs</DependentUpon>
-	</Compile>
-	<Compile Include="Migrations\201609281626266_AtribuicaoPoster.cs" />
+    </Compile>
+    <Compile Include="Migrations\201609281626266_AtribuicaoPoster.cs" />
     <Compile Include="Migrations\201609281626266_AtribuicaoPoster.Designer.cs">
       <DependentUpon>201609281626266_AtribuicaoPoster.cs</DependentUpon>
     </Compile>
@@ -118,7 +118,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609280845459_UpdateTablePoster.resx">
       <DependentUpon>201609280845459_UpdateTablePoster.cs</DependentUpon>
-	</EmbeddedResource>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609281626266_AtribuicaoPoster.resx">
       <DependentUpon>201609281626266_AtribuicaoPoster.cs</DependentUpon>
     </EmbeddedResource>
