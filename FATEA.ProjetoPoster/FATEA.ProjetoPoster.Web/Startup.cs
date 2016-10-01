@@ -1,5 +1,4 @@
 ﻿using FATEA.ProjetoPoster.DataAccess.Entity.Context;
-using FATEA.ProjetoPoster.Web.Identity;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
@@ -14,7 +13,7 @@ namespace FATEA.ProjetoPoster.Web
         public void Configuration(IAppBuilder app)
         {
         // app.Use<IdentityDbContext>(new ProjetoPosterDbContext());
-          app.CreatePerOwinContext<ProjetoPosterIdentityDbContext>(() => new ProjetoPosterIdentityDbContext());
+          app.CreatePerOwinContext<ProjetoPosterDbContext>(() => new ProjetoPosterDbContext());
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
            LoginPath = new PathString("/Conta/Login"),

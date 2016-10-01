@@ -57,9 +57,9 @@ namespace FATEA.ProjetoPoster.DataAccess.Entity.Configurations
             Property(a => a.IdEvento)
               .HasColumnName("POS_EVENTO")
                 .IsRequired();
-            Property(a => a.IdEvento)
-             .HasColumnName("POS_USER")
-               .IsRequired();
+            //Property(a => a.IdUsuario)
+            // .HasColumnName("POS_USER")
+            //   .IsRequired();
 
         }
 
@@ -73,15 +73,18 @@ namespace FATEA.ProjetoPoster.DataAccess.Entity.Configurations
                 .WithMany(m => m.Posters)
                 .HasForeignKey(fk => fk.IdCurso)
                 .WillCascadeOnDelete(false);
+
             HasRequired(r => r.Evento)
                .WithMany(m => m.Posters)
                .HasForeignKey(fk => fk.IdEvento)
                .WillCascadeOnDelete(false);
 
-            HasRequired(r => r.Evento)
-              .WithMany(m => m.Posters)
-              .HasForeignKey(fk => fk.IdEvento)
-              .WillCascadeOnDelete(false);
+            //HasRequired(r => r.Usuario)
+            //  .WithMany(m => m.Posters)
+            //  .HasForeignKey(fk => fk.IdUsuario)
+            //  .WillCascadeOnDelete(false);
+
+
         }
         public override void ConfigureOthers()
         {

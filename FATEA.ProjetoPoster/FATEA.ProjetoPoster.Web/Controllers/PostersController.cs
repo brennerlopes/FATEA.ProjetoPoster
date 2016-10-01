@@ -7,7 +7,6 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FATEA.ProjetoPoster.Domain;
-using FATEA.ProjetoPoster.Web.Models;
 using FATEA.ProjetoPoster.Repository.Common;
 using FATEA.ProjetoPoster.Repository;
 using FATEA.ProjetoPoster.DataAccess.Entity.Context;
@@ -60,8 +59,6 @@ namespace FATEA.ProjetoPoster.Web.Controllers
             CriarListaDeEventos();
             CriarListaDeCursos();
             return View();
-
-
         }
 		
         private void CriarListaDeEventos()

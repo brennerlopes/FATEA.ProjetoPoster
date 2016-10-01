@@ -24,7 +24,7 @@ namespace FATEA.ProjetoPoster.Domain
         public int IdCurso { get; set; }
         public virtual Evento Evento { get; set; }
         public int IdEvento { get; set; }
-       
-
+        public virtual Usuario Usuario { get; set; }
+        public string IdUsuario { get; set; }
     }
 }

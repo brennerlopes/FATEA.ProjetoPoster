@@ -1,5 +1,6 @@
 ﻿using FATEA.ProjetoPoster.DataAccess.Entity.Configurations;
 using FATEA.ProjetoPoster.Domain;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -29,6 +30,9 @@ namespace FATEA.ProjetoPoster.DataAccess.Entity.Context
             modelBuilder.Configurations.Add(new CursoTypeConfiguration());
             modelBuilder.Configurations.Add(new EventoTypeConfiguration());
             modelBuilder.Configurations.Add(new AvaliacaoTypeConfiguration());
+            modelBuilder.Entity<IdentityUserLogin>().HasKey<string>(l => l.UserId);
+            modelBuilder.Entity<IdentityRole>().HasKey<string>(r => r.Id);
+            modelBuilder.Entity<IdentityUserRole>().HasKey(r => new { r.RoleId, r.UserId });
         }
         
     }

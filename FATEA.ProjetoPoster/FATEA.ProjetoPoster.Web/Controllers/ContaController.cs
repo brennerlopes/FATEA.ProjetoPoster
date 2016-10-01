@@ -1,5 +1,4 @@
 ﻿using FATEA.ProjetoPoster.Web.ViewModels.Usuario;
-using FATEA.ProjetoPoster.Web.Identity;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
@@ -10,7 +9,8 @@ using System.Net;
 using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
-using FATEA.ProjetoPoster.Web.Models;
+using FATEA.ProjetoPoster.Domain;
+using FATEA.ProjetoPoster.DataAccess.Entity.Context;
 
 namespace FATEA.ProjetoPoster.Web.Controllers
 
@@ -33,7 +33,7 @@ namespace FATEA.ProjetoPoster.Web.Controllers
             if (ModelState.IsValid)
             {
                 UserStore<Usuario> userStore
-                    = new UserStore<Usuario>(new ProjetoPosterIdentityDbContext());
+                    = new UserStore<Usuario>(new ProjetoPosterDbContext());
                 UserManager<Usuario> userManager
                     = new UserManager<Usuario>(userStore);
                 Usuario user = new Usuario
@@ -51,7 +51,7 @@ namespace FATEA.ProjetoPoster.Web.Controllers
                 if (result.Succeeded)
                 {
                     RoleStore<IdentityRole> roleStore
-                        = new RoleStore<IdentityRole>(new ProjetoPosterIdentityDbContext());
+                        = new RoleStore<IdentityRole>(new ProjetoPosterDbContext());
                     RoleManager<IdentityRole> roleManager
                         = new RoleManager<IdentityRole>(roleStore);
                     IdentityRole selectRole
@@ -83,7 +83,7 @@ namespace FATEA.ProjetoPoster.Web.Controllers
             if (ModelState.IsValid)
             {
                 UserStore<Usuario> userStore
-                    = new UserStore<Usuario>(new ProjetoPosterIdentityDbContext());
+                    = new UserStore<Usuario>(new ProjetoPosterDbContext());
                 UserManager<Usuario> userManager
                     = new UserManager<Usuario>(userStore);
 
@@ -123,7 +123,7 @@ namespace FATEA.ProjetoPoster.Web.Controllers
         private void PopularPerfil()
         {
             RoleStore<IdentityRole> roleStore
-                = new RoleStore<IdentityRole>(new ProjetoPosterIdentityDbContext());
+                = new RoleStore<IdentityRole>(new ProjetoPosterDbContext());
             RoleManager<IdentityRole> roleManager
                 = new RoleManager<IdentityRole>(roleStore);
             ViewBag.Roles = new SelectList(roleManager.Roles, "Id", "Name");
