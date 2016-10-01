@@ -6,26 +6,24 @@
 <h2>Criação de Usuário</h2>
 @using (Html.BeginForm("CriarUsuario", "Conta", FormMethod.Post))
   {
-
-
    <div class="row">
         @Html.AntiForgeryToken()
         <div class="form-group col-md-8">
             @Html.DisplayNameFor(p => p.NomeUsuario)
-            @Html.TextBoxFor(p => p.NomeUsuario, "", new { @class = "form-control"})
+            @Html.TextBoxFor(p => p.NomeUsuario, "", new { @class = "form-control", placeholder = "Insira seu nome" })
             @Html.ValidationMessageFor(p=> p.NomeUsuario, "", new { @class = "text-danger"})
             @Html.ValidationMessage("identity_error", new { @class = "text-danger"})
         </div>
 
        <div class="form-group col-md-8">
            @Html.DisplayNameFor(p => p.RgUsuario)
-           @Html.TextBoxFor(p => p.RgUsuario, "", new { @class = "form-control" })
-           @Html.ValidationMessageFor(p => p.RgUsuario, "", new { @class = "text-danger" })
+           @Html.TextBoxFor(p => p.RgUsuario, "", new { @class = "form-control", placeholder = "Campo opcional" })
+           @Html.ValidationMessageFor(p => p.RgUsuario, "", new { @class = "text-danger"})
            @Html.ValidationMessage("identity_error", new { @class = "text-danger" })
        </div>   
        <div class="form-group col-md-8">
            @Html.DisplayNameFor(p => p.CpfUsuario)
-           @Html.TextBoxFor(p => p.CpfUsuario, "", new { @class = "form-control" })
+           @Html.TextBoxFor(p => p.CpfUsuario, "", new { @class = "form-control", placeholder = "Insira seu Cpf" })
            @Html.ValidationMessageFor(p => p.CpfUsuario, "", new { @class = "text-danger" })
            @Html.ValidationMessage("identity_error", new { @class = "text-danger" })
 
@@ -33,26 +31,25 @@
 
        <div class="form-group col-md-8">
            @Html.DisplayNameFor(p => p.EmailUsuario)
-           @Html.TextBoxFor(p => p.EmailUsuario, "", new { @class = "form-control" })
+           @Html.TextBoxFor(p => p.EmailUsuario, "", new { @class = "form-control", placeholder = "Insira um e-mail válido" })
            @Html.ValidationMessageFor(p => p.EmailUsuario, "", new { @class = "text-danger" })
            @Html.ValidationMessage("identity_error", new { @class = "text-danger" })
        </div>     
         <div class="form-group col-md-8">
             @Html.DisplayNameFor(p => p.Senha)
-            @Html.PasswordFor(p => p.Senha, new { @class = "form-control"})
+            @Html.PasswordFor(p => p.Senha, new { @class = "form-control", placeholder = "Minímo 6 digítos" })
             @Html.ValidationMessageFor(p=> p.Senha, "", new { @class = "text-danger"})
         </div>
-        <div class="form-group col-md-8">
+        @*<div class="form-group col-md-8">
             @Html.DisplayNameFor(p => p.RoleId)
             @Html.DropDownListFor(p => p.RoleId, (SelectList) ViewBag.Roles, new { @class = "form-control" })
-            @Html.ValidationMessageFor(p => p.RoleId)
-            
+            @Html.ValidationMessageFor(p => p.RoleId)            
         </div>
+            *@
        </div>
-
     <div class="row">
         <div class="col-md-4">
-            <input type="submit" class="btn btn-default" value="Salvar Usuário"/>
+            <input type="submit" class="btn btn-default" value="Cadastrar" />
         </div>
     </div>
 }

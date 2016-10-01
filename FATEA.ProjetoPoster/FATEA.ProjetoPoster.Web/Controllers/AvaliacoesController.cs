@@ -16,6 +16,8 @@ using FATEA.ProjetoPoster.Web.ViewModels.Poster;
 
 namespace FATEA.ProjetoPoster.Web.Controllers
 {
+    [Authorize(Roles = "ADMINISTRADOR")]
+    [Authorize(Roles = "PROFESSOR")]
     public class AvaliacoesController : Controller
     {
         private ICrudRepositorio<Avaliacao, long> _repositorio = new AvaliacaoRepository(new ProjetoPosterDbContext());

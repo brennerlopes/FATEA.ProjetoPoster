@@ -12,6 +12,7 @@ using System.Web.Mvc;
 
 namespace FATEA.ProjetoPoster.Web.Controllers
 {
+    [Authorize]
     public class EventosController : Controller
     {
         private ICrudRepositorio<Evento, long> _repositorio = new EventoRepository(new ProjetoPosterDbContext());

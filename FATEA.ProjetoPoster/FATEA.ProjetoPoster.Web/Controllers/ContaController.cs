@@ -21,8 +21,7 @@ namespace FATEA.ProjetoPoster.Web.Controllers
     {
         public ActionResult CriarUsuario()
         {
-
-            PopularPerfil();
+            CadastrarPerfil();
             return View();
         }
 
@@ -30,6 +29,12 @@ namespace FATEA.ProjetoPoster.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CriarUsuario(UsuarioEditViewModel viewModel)
         {
+            RoleStore<IdentityRole> roleStore
+                        = new RoleStore<IdentityRole>(new ProjetoPosterDbContext());
+            RoleManager<IdentityRole> roleManager
+                = new RoleManager<IdentityRole>(roleStore);
+            var role = roleManager.FindByName("ALUNO");
+            viewModel.RoleId = role.Id;
             if (ModelState.IsValid)
             {
                 UserStore<Usuario> userStore
@@ -41,34 +46,25 @@ namespace FATEA.ProjetoPoster.Web.Controllers
                     NomeUsuario = viewModel.NomeUsuario,
                     UserName = viewModel.EmailUsuario,
                     RgUsuario = viewModel.RgUsuario,
-                    CpfUsuario = viewModel.CpfUsuario
-
-
-
+                    CpfUsuario = viewModel.CpfUsuario,
                 };
-
                 IdentityResult result = userManager.Create(user, viewModel.Senha);
                 if (result.Succeeded)
-                {
-                    RoleStore<IdentityRole> roleStore
-                        = new RoleStore<IdentityRole>(new ProjetoPosterDbContext());
-                    RoleManager<IdentityRole> roleManager
-                        = new RoleManager<IdentityRole>(roleStore);
-                    IdentityRole selectRole
-                        = roleManager.Roles.Single(s => s.Id == viewModel.RoleId);
+                {                  
+                        
                     IdentityUser insertedUser = userManager.Find(viewModel.EmailUsuario, viewModel.Senha);
-                    userManager.AddToRole(insertedUser.Id, selectRole.Name);
+                    userManager.AddToRole(insertedUser.Id, role.Name);
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Login", "Conta");
                 }
                 else
                 {
-                    PopularPerfil();
+                   // PopularPerfil();
                     ModelState.AddModelError("identity_error", result.Errors.First());
                     return View(viewModel);
                 }
             }
-            PopularPerfil();
+            //PopularPerfil();
             return View(viewModel);
         }
         public ActionResult Login()
@@ -120,14 +116,35 @@ namespace FATEA.ProjetoPoster.Web.Controllers
             return RedirectToAction("Login", "Conta");
         }
 
-        private void PopularPerfil()
+        //private void PopularPerfil()
+        //{
+        //    RoleStore<IdentityRole> roleStore
+        //        = new RoleStore<IdentityRole>(new ProjetoPosterDbContext());
+        //    RoleManager<IdentityRole> roleManager
+        //        = new RoleManager<IdentityRole>(roleStore);
+        //    ViewBag.Roles = new SelectList(roleManager.Roles, "Id", "Name");
+        //}
+
+        private void CadastrarPerfil()
         {
             RoleStore<IdentityRole> roleStore
                 = new RoleStore<IdentityRole>(new ProjetoPosterDbContext());
             RoleManager<IdentityRole> roleManager
                 = new RoleManager<IdentityRole>(roleStore);
-            ViewBag.Roles = new SelectList(roleManager.Roles, "Id", "Name");
-        }
 
+            var role = roleManager.FindByName("ADMINISTRADOR");
+            if (role == null)
+            {
+                role = new IdentityRole("ADMINISTRADOR");
+                roleManager.Create(role);
+                role = new IdentityRole("PROFESSOR");
+                roleManager.Create(role);
+                role = new IdentityRole("ALUNO");
+                roleManager.Create(role);
+              //  PopularPerfil();
+            }
+            //PopularPerfil();
+        }
     }
+
 }

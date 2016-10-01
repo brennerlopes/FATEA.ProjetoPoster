@@ -16,6 +16,7 @@ using AutoMapper;
 
 namespace FATEA.ProjetoPoster.Web.Controllers
 {
+    [Authorize]
     public class CursosController : Controller
     {
         private ProjetoPosterDbContext db = new ProjetoPosterDbContext();

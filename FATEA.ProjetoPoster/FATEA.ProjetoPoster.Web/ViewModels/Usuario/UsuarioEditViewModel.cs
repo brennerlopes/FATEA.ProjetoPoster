@@ -27,6 +27,7 @@ namespace FATEA.ProjetoPoster.Web.ViewModels.Usuario
         [DisplayName("CPF")]
         [Required(ErrorMessage = "O CPF é obrigatório")]
         [MaxLength(14, ErrorMessage = "O CPF deve conter no máximo 14 dígitos")]
+
         //[MinLength(11, ErrorMessage = "O nome completo deve conter no mínimo 5 caracteres ")]
 
         public string CpfUsuario { get; set; }
@@ -46,8 +47,8 @@ namespace FATEA.ProjetoPoster.Web.ViewModels.Usuario
 
         public string Senha { get; set; }
 
-        [DisplayName("Perfil")]
-        [Required(ErrorMessage = "O perfil do usuário é obrigatório")]
+        //[DisplayName("Perfil")]
+       // [Required(ErrorMessage = "O perfil do usuário é obrigatório")]
 
         public string RoleId { get; set; }
 

@@ -15,12 +15,12 @@ using AutoMapper;
 using System.IO;
 using FATEA.ProjetoPoster.Web.ViewModels.Curso;
 using Microsoft.AspNet.Identity.EntityFramework;
-using FATEA.ProjetoPoster.Web.Identity;
 using Microsoft.AspNet.Identity;
 using FATEA.ProjetoPoster.Web.ViewModels.Evento;
 
 namespace FATEA.ProjetoPoster.Web.Controllers
 {
+    [Authorize]
     public class PostersController : Controller
     {
         private ICrudRepositorio<Poster, long> _repositorio = new PosterRepository(new ProjetoPosterDbContext());
@@ -29,10 +29,11 @@ namespace FATEA.ProjetoPoster.Web.Controllers
         private ICrudRepositorio<Avaliacao, long> _repositorioAvaliacao = new AvaliacaoRepository(new ProjetoPosterDbContext());
 
         // GET: Posters
+
         public ActionResult Index()
         {
             List<PosterIndexViewModel> viewModels = new List<PosterIndexViewModel>();
-            List<Poster> posters = _repositorio.Select();
+            List<Poster> posters = _repositorio.Select(where: x => x.IdUsuario == User.Identity.GetUserId());
             viewModels = Mapper.Map<List<Poster>, List<PosterIndexViewModel>>(posters);
             return View(viewModels);
         }
@@ -60,7 +61,7 @@ namespace FATEA.ProjetoPoster.Web.Controllers
             CriarListaDeCursos();
             return View();
         }
-		
+
         private void CriarListaDeEventos()
         {
             List<Evento> eventos = _repositorioEvento.Select(where: x => x.Status != false);
@@ -88,6 +89,7 @@ namespace FATEA.ProjetoPoster.Web.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    viewModel.IdUsuario = User.Identity.GetUserId();
                     Poster poster = Mapper.Map<PosterEdicaoViewModel, Poster>(viewModel);
                     _repositorio.Insert(poster);
                     return RedirectToAction("Index");
@@ -104,9 +106,12 @@ namespace FATEA.ProjetoPoster.Web.Controllers
             return View(viewModel);
         }
 
-        // GET: Posters/Edit/5
+        // GET: Posters/Edit/5        
         public ActionResult Edit(int? id)
         {
+            CriarListaDeEventos();
+            CriarListaDeCursos();
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -133,12 +138,16 @@ namespace FATEA.ProjetoPoster.Web.Controllers
                 _repositorio.Update(poster);
                 return RedirectToAction("Index");
             }
+            CriarListaDeEventos();
+            CriarListaDeCursos();
             return View(viewModel);
         }
 
         // GET: Posters/Delete/5
         public ActionResult Delete(int? id)
         {
+            CriarListaDeEventos();
+            CriarListaDeCursos();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -183,10 +192,10 @@ namespace FATEA.ProjetoPoster.Web.Controllers
             List<PosterIndexViewModel> posteresViewModels = Mapper.Map<List<Poster>, List<PosterIndexViewModel>>(posteres);
             ViewBag.Posteres = new SelectList(posteresViewModels, "Id", "Titulo");
             UserStore<IdentityUser> userStore
-                    = new UserStore<IdentityUser>(new ProjetoPosterIdentityDbContext());
+                    = new UserStore<IdentityUser>(new ProjetoPosterDbContext());
             UserManager<IdentityUser> userManager
                 = new UserManager<IdentityUser>(userStore);
-            RoleStore<IdentityRole> roleStore = new RoleStore<IdentityRole>(new ProjetoPosterIdentityDbContext());
+            RoleStore<IdentityRole> roleStore = new RoleStore<IdentityRole>(new ProjetoPosterDbContext());
             RoleManager<IdentityRole> roleManager = new RoleManager<IdentityRole>(roleStore);
             List<IdentityUser> usuarios = userManager.Users.ToList();
             IdentityRole avaliadorRole = roleManager.Roles.Where(r => r.Name == "AVALIADOR").First();
@@ -199,11 +208,11 @@ namespace FATEA.ProjetoPoster.Web.Controllers
         // POST: Posters/AtribuirPoster
         [HttpPost]
         [ValidateAntiForgeryToken]
-         public ActionResult AtribuirPoster(AtribuirPosterViewModel viewModel)
+        public ActionResult AtribuirPoster(AtribuirPosterViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
-                
+
                 Avaliacao avaliacao = Mapper.Map<AtribuirPosterViewModel, Avaliacao>(viewModel);
                 _repositorioAvaliacao.Insert(avaliacao);
                 return RedirectToAction("Index");

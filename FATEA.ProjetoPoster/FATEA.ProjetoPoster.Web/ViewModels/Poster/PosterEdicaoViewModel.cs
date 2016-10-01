@@ -57,6 +57,7 @@ namespace FATEA.ProjetoPoster.Web.ViewModels.Poster
         public string AvaliadoPor { get; set; }
         public string NomeArquivo { get; set; }
 
+        public string IdUsuario { get; set; }
 
     }
 }

@@ -87,7 +87,6 @@
     <Compile Include="Migrations\201609280845459_UpdateTablePoster.Designer.cs">
       <DependentUpon>201609280845459_UpdateTablePoster.cs</DependentUpon>
     </Compile>
-
     <Compile Include="Migrations\201610010708417_UpdatePoster_User.cs" />
     <Compile Include="Migrations\201610010708417_UpdatePoster_User.Designer.cs">
       <DependentUpon>201610010708417_UpdatePoster_User.cs</DependentUpon>
@@ -95,7 +94,10 @@
     <Compile Include="Migrations\201610010710492_UpdatePoster_User_2.cs" />
     <Compile Include="Migrations\201610010710492_UpdatePoster_User_2.Designer.cs">
       <DependentUpon>201610010710492_UpdatePoster_User_2.cs</DependentUpon>
-
+    </Compile>
+    <Compile Include="Migrations\201610010736091_UpdateData.cs" />
+    <Compile Include="Migrations\201610010736091_UpdateData.Designer.cs">
+      <DependentUpon>201610010736091_UpdateData.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Configurations\CursoTypeConfiguration.cs" />
@@ -133,13 +135,14 @@
     <EmbeddedResource Include="Migrations\201609280845459_UpdateTablePoster.resx">
       <DependentUpon>201609280845459_UpdateTablePoster.cs</DependentUpon>
     </EmbeddedResource>
-
     <EmbeddedResource Include="Migrations\201610010708417_UpdatePoster_User.resx">
       <DependentUpon>201610010708417_UpdatePoster_User.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610010710492_UpdatePoster_User_2.resx">
       <DependentUpon>201610010710492_UpdatePoster_User_2.cs</DependentUpon>
-
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610010736091_UpdateData.resx">
+      <DependentUpon>201610010736091_UpdateData.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

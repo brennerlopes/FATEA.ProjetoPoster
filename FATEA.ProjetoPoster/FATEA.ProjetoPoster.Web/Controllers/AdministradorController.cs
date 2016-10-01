@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace FATEA.ProjetoPoster.Web.Controllers
 {
+    [Authorize]
     public class AdministradorController : Controller
     {
         // GET: Administrador

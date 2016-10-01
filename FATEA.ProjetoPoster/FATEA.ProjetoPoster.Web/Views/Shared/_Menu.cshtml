@@ -18,18 +18,18 @@
                 {
                     <li>@Html.ActionLink("Eventos", "Create", "Eventos")</li>
                     <li>@Html.ActionLink("Cursos", "Create", "Cursos")</li>
-                    <li><a href="#">Bem-vindo Admin, @(User.Identity.Name)</a></li>
+                    <li><a href="#">Bem-vindo(a), @(User.Identity.Name)</a></li>
                     <li>@Html.ActionLink("Sair", "Logout", "Conta")</li>
                 }
                 else if(User.IsInRole("ALUNO")){
                         <li>@Html.ActionLink("Posters", "Create", "Posters")</li>
-                        <li><a href="#">Bem-vindo Aluno, @(User.Identity.Name)</a></li>
+                        <li><a href="#">Bem-vindo(a), @(User.Identity.Name)</a></li>
                         <li>@Html.ActionLink("Sair", "Logout", "Conta")</li>
                 }
                 else if (User.IsInRole("AVALIADOR"))
                 {
                     <li>@Html.ActionLink("Eventos", "Details", "Eventos")</li>
-                    <li><a href="#">Bem-vindo Avaliador, @(User.Identity.Name)</a></li>
+                    <li><a href="#">Bem-vindo(a), @(User.Identity.Name)</a></li>
                     <li>@Html.ActionLink("Sair", "Logout", "Conta")</li>
                 }
 
